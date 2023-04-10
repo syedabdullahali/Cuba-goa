@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sunnyvk/allapiresort.git"
+    "url": "git+https://github.com/syedabdullahali/Cuba-goa.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/sunnyvk/allapiresort/issues"
+    "url": "https://github.com/syedabdullahali/Cuba-goa.git/issues"
   },
-  "homepage": "https://github.com/sunnyvk/allapiresort#readme",
+  "homepage": "https://github.com/syedabdullahali/Cuba-goa.git#readme",
   "dependencies": {
     "bcrypt": "^5.1.0",
     "body-parser": "^1.20.2",

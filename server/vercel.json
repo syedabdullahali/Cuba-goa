@@ -1,6 +1,6 @@
 {
     "version": 2,
-    "name": "allapiresort",
+    "name": "all-apiresort",
     "builds": [
         {
             "src": "index.js",
