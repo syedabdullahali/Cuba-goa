@@ -1,0 +1,28 @@
+.main-about{
+    background-color: white;
+}
+.main-about .banner{
+    width: 100%;
+}
+.about-whiteWrap .mainContentAbout{
+    color: black;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: auto;
+    padding: 100px 60px;
+}
+.about-whiteWrap .mainContentAbout .entry-content-1 h1{
+    font-weight: 400;
+}
+
+.about-whiteWrap .mainContentAbout .entry-content-2 p{
+    font-weight: 300;
+    font-size: 18px;
+}
+
+@media (max-width:1000px){
+    .about-whiteWrap .mainContentAbout{
+        grid-template-columns: 1fr;
+        padding: 50px 30px;
+    }
+}

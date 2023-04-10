@@ -1,0 +1,260 @@
+.forSale{
+    padding-top: 6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgb(55, 55, 71);
+
+}
+.forSale .sale-Title{
+    font-size: 3rem;
+    text-align: center;
+    margin: 2rem 0;
+}
+
+
+
+.forSale> button{
+    border: none;
+    padding: 10px 40px ;
+    background-color: #0693e3;
+}
+.forSale> button:hover{
+    background-color: orange;
+}
+
+.forSale >p {
+    padding: 0 20%;
+    margin: 2rem 0;
+}
+
+/*     new sales part */
+
+.newPlot-forSale{
+    padding: 2rem;
+    color: black;
+    background-color: white;
+}
+
+.new-sale-title{    
+    font-size: 2.5rem;
+    margin-top: 2rem;
+}
+
+.newPlot-forSale>div>.sales-new-button{
+    border: none;
+    padding: 10px 40px ;
+    background-color: #0693e3;
+    margin: 20px;
+    transition: 0.2s;
+
+}
+
+.button-parent{
+    display: flex;
+    justify-content: end;
+}
+
+.newPlot-forSale> div>.sales-new-button:hover{
+    background-color: orange;
+}
+
+.newPlot-forSale> div>.sales-new-button:active{
+    transform: translateX(-2px);
+
+
+}
+
+
+.sale-card{
+    padding: 10px;
+    background-color: rgb(255, 255, 255);
+    height: fit-content;
+    width:fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: 1px 1px 5px 2px rgba(51, 51, 90, 0.162);
+    margin: auto;
+}
+
+.sale-card >.img-container{
+    width: 100%;
+
+}
+
+.sale-card >.img-container >img{
+    object-fit: cover;
+    width: 100%;
+    max-height: 500px;
+
+    margin: auto;
+
+}
+
+
+.sale-card >.sale-card-title{
+    font-family: sans-serif;
+}
+
+.sale-card >.sale-card-title-about{
+    font-family: sans-serif;
+    color: #0693e3;
+    font-size: 20px;
+    font-weight: 400;
+
+}
+.card-info-1{
+    color: black;
+    font-size: 20px;
+}
+
+.form-modal{
+    background-color: rgba(11, 17, 61, 0.34);
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top:0;
+    z-index: 10000000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cart-modal{
+    height: 90%;
+    width: 70%;
+    background-color: rgba(115, 151, 187, 0.785);
+    overflow-y: scroll;
+    overflow-x: hidden;
+    color: black;
+    padding: 5px 15px;
+    display: flex;
+   align-items: center;
+   flex-direction: column;
+
+   padding: 40px;
+
+}
+
+
+
+
+.sale-cart-form{
+    height: fit-content;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-auto-rows: minmax(30px,auto);
+    padding: 30px;
+    gap: 30px;
+    background-color: white;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.inputbox-sales{
+    display: flex;
+    flex-direction: column;
+}
+
+
+.sale-cart-form .inputbox-sales input{
+padding: 5px;
+background-color: antiquewhite;
+border: none;
+color: black;
+outline: none;
+}
+.sale-cart-form .inputbox-sales input:focus{
+    background-color: rgba(0, 0, 255, 0.114);
+
+
+}
+.modal-title{
+text-align: center;
+}
+.title-p{
+    grid-area: 1/1/2/3;
+}
+.inputbox-sales-img{
+    grid-area: 1/1/3/3;
+    display: flex;
+    align-items: center;
+    padding-top: 50px;
+
+}
+.inputbox-sales-img >button{
+    padding: 5px 15px;
+    background-color: orange;
+    border: none;
+}
+.inputbox-sales-img>.img-parnet-sales{
+min-height: 140px;
+width: 200px;
+background-color: #0692e380;
+margin-right: 30px;
+}
+.inputbox-sales2 .sumbit{
+    padding: 5px 15px;
+    background-color: rgb(81, 81, 240);
+    font-size: 18px;
+    border: none;
+}
+.inputbox-sales2 .sumbit:hover{
+    background-color: orange;
+
+}
+.cart-modal >.sale-cart-cancel{
+background-color: transparent;
+color: white;
+border: none;
+font-size: 35px;
+align-self: flex-end;
+}
+@media (max-width:1000px){
+    .sale-cart-form{
+        height: fit-content;
+        display: flex;
+        flex-direction: column;         
+        background-color: white;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+}
+
+@media (max-width:650px){
+    .new-sale-title{
+        font-size: 25px;
+    }
+    .card-info-1{
+        font-size: 15px;
+    }
+    .forSale{
+    padding: 0%;
+    }
+
+    .forSale p{
+       text-align: center;
+
+    }
+    .cart-modal{
+        height: 95%;
+        width: 95%;
+        padding: 10px;
+
+    
+    }
+    .inputbox-sales-img{
+        display: flex;
+        flex-direction: column;
+    }
+    .inputbox-sales-img button{
+       margin: 20px 0;
+    }
+    .inputbox-sales-img>.img-parnet-sales{
+        margin: 0;
+    }
+}

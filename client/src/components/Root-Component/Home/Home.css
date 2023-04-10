@@ -1,0 +1,443 @@
+
+*{
+    box-sizing: border-box;
+}
+
+.Home{
+    background-color: rgb(242, 242, 245);
+    min-height: 100vh;
+}
+.entry-content{
+    background-color: #fff;
+    color: black;
+    display: grid;
+    grid-template-columns: 45% 50%;
+    padding: 45px 30px;
+    gap: 5%;
+}
+
+
+.entry-title{
+    color: rgb(61, 60, 60);
+    font-size: 35px;
+}
+
+
+
+.npCallout{
+    background-color: #009fe1;
+    max-width: 100%;
+    position: relative
+    
+}
+.img-slider{
+    background: url('../../../assets/animate1.jpg');
+    height: 450px;
+    background-color: #009fe1;
+    background-repeat: no-repeat;
+    background-position: right;
+    animation: changebackground 15s infinite  alternate-reverse forwards running ease-in-out;
+
+}
+
+@keyframes changebackground {
+    0%   {
+        background: url('../../../assets/animate1.jpg') ;  
+        background-size: cover;
+        background-position: right;
+
+    }
+
+    25%  {
+        background: url('../../../assets/animate3.jpg');
+        background-size: cover;
+        background-position: right;
+    
+    }
+    75%  { 
+        background: url('../../../assets/animate4.jpg');
+        background-size: cover;
+        background-position: right;
+
+    }
+    100% {
+        background: url('../../../assets/animate2.jpg');
+        background-size: cover;
+        background-position: right;
+
+    }
+}
+
+
+.img-slider-content{
+    position: absolute;
+    top: 0;
+    background-color: #009fe1;
+    clip-path: polygon(0 0,100% 0,80% 100%,0 100%);
+    height: 100%;
+    padding: 20px;
+    width: 50%;
+    text-align: start;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.learn-more{
+color:white;
+background-color: orange;
+text-decoration: none;
+padding: 10px 40px;
+
+}
+.learn-more:hover{
+    color:white;
+    background-color: #003f5e;
+    
+}
+.card-cottages-slider-parent{
+    height: fit-content;
+    padding: 10px;
+    overflow: hidden;    
+}
+
+
+.cottages-slider{
+    height: 100%;
+    display: flex;
+    position: relative;
+    transition: 0.5s;
+}
+
+.cottages-card{
+    background-color: #fff;
+    height: 100%;
+    margin: 10px;
+    box-shadow: 1px 1px 5px 4px rgba(51, 51, 90, 0.076);
+    min-width: 300px;
+    min-height: 530px;
+    width: fit-content;
+    padding-bottom:30px ;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.cottages-img-parent{
+    height: 200px;
+    width: 100%;
+    display: flex;
+
+    
+}
+
+.cottages-img-parent img{
+ object-fit: cover;
+ width: 100%;
+ margin: 0;
+ padding: 0;
+
+}
+.info{
+    color: black;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+.dot-parnet{
+    width: 300px;
+    height: 100px;
+    margin: auto;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 20px 10px;
+}
+.dot{
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    background-color: rgb(171, 171, 170);
+    cursor: pointer;
+
+}
+.active-dot{
+    background-color: orange;
+}
+.dot:hover{
+    background-color: orange;
+}
+.priceBox{
+    color: gray;
+    font-size:20px ;
+}
+.room-title{
+    font-size:21px ;
+}
+
+.title-card-cottages{
+    color: black;
+    font-size: 25px;
+    text-align: center;
+    margin: 60px 0px;
+    font-size: 40px;
+}
+.summaryPrices{
+    font-size: 15px;
+}
+.cottages-button{
+    padding: 5px 20px;
+    background-color: orange;
+    border: none;
+    font-size: 20px;
+}
+.cottages-button:hover{
+    background-color: rgb(44, 78, 216);
+
+}
+.comments{
+    padding-bottom:50px ;
+}
+.comment-container{
+    background-color: #019ad2;
+    display: flex;
+    height: 100%;
+    align-items: center;
+
+
+}
+.comment-image{
+    clip-path: polygon(0 0,100% 0,80% 100%, 0% 100%);
+    min-height: 450px;
+    width: 40%;
+    background: url(https://cdn.trendir.com/wp-content/uploads/old/house-design/wood-and-glass-cabin-home-brings-luxury-to-nature-1.jpg);
+    background-size: 100% 100%;
+    
+    
+}
+
+.comment-box{
+    height: inherit;
+    width: 60%;
+    color: white;
+    display: flex;
+    padding: 20px;
+}
+.comment-message{
+font-size: 20px;
+}
+.comments-button{
+    font-size: 60px;
+    margin: 20px;
+    border: none;
+    background-color: transparent;
+}
+
+.greatbluesort-section{
+    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,150px);
+    grid-auto-rows: 150px;
+    gap: 10px;
+    padding: 10px;
+    height: fit-content;
+    place-content: center;
+    
+}
+.greatbluesort-title{
+    color: black;
+    text-align: center;
+}
+.card-cottages-slider-parent .info{
+    padding: 10px;
+}
+
+
+.add-new-cottages-parent{
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content: end;
+
+}
+
+.add-cottages-button{
+    background-color: orange;
+    padding: 10px 40px; 
+    border: none;   
+}
+
+.add-cottages-button:hover{
+    background-color:#019ad2;
+}
+
+
+@media (min-width:1100px){
+    .card-cottages-slider-parent{
+        height: fit-content;
+        overflow: hidden;    
+    }
+    .card-cottages-slider-parent .info .priceBox{
+        font-size: 25px;
+    }
+    .card-cottages-slider-parent .info h3{
+        font-size: 20px;
+    }
+    .card-cottages-slider-parent .info{
+        padding: 10px;
+    }
+
+}
+
+
+@media (max-width:1000px){
+    .entry-content{
+        background-color: #fff;
+        color: black;
+        display: grid;
+        grid-template-columns: 1fr;
+        padding: 45px 30px;
+        gap: 5%;
+    }
+    .img-slider-content{
+        position: absolute;
+        top: 0;
+        background-color: #009fe1;
+    }
+    
+    .img-slider{
+        background: url(https://i.insider.com/5a61087d55ac562d008b4794?width=700);
+        height: 300px;   
+    }
+    .cottages-slide-1{
+        display: none;
+    }
+
+  
+    
+    .cottages-slider{
+        width: 750%;
+
+    }
+
+    .comment-container{
+        background-color: #019ad2;
+        display: flex;
+        height: 80%;
+    }
+    .comment-image{
+        clip-path: polygon(0 0,100% 0,80% 100%, 0% 100%);
+        min-height: 350px
+    }
+    .comment-message{
+    font-size: 15px;
+    }
+
+    
+}
+
+@media (max-width:850px){
+
+    .comment-container{
+        background-color: #019ad2;
+        display: block;
+        height: 80%;
+    
+    
+    }
+    .comment-image{
+        clip-path: polygon(0 0,100% 0,100% 100%, 0% 100%);
+        min-height: 300px;
+        width:100%;
+     
+    }
+    .comment-message{
+    font-size: 15px;
+    }
+    .comment-box{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        padding: 5px;
+
+    }
+
+    .comments-button{
+        font-size: 30px;
+    }
+
+}
+@media (max-width:680px){
+    .img-slider-content {
+        position: relative;
+        top: 0;
+        background-color: #009fe1;
+        text-align: center;
+        width: 100%;
+
+
+    }
+    
+    .img-slider{
+        background: url(https://i.insider.com/5a61087d55ac562d008b4794?width=700);
+        height: 200px;   
+    }
+
+    .cottages-slider{
+        width: 1500%;
+    }
+    .dot-parnet{
+        width: 90%;
+      }
+      
+}
+.cottages-content{
+    height: 250px;
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    flex-direction: column;
+    background-color: white;
+    margin-top: -20px;
+    border-radius: 20px;
+    width: 100%;
+    padding: 30px;
+
+}
+
+.button-parent{
+    height: 40px;
+display: flex;
+ justify-content: center;
+ align-items: center;
+ 
+
+}
+
+.book-button-2{
+text-decoration: none;
+padding: 5px 40px;
+background-color: orange;
+font-size: 18px;
+color: white;
+border: none;
+}
+.book-button-2:hover{
+    background-color:#009fe1;
+}
+.amminities{
+    padding: 10px 0;
+}
+.rec-dot{
+    box-shadow: 0px 0px 0px 2px orange !important;
+}
+.rec-dot_active{
+    background-color: orange !important;
+    box-shadow: 0px 0px 0px 2px orange !important;
+}
+.sc-beqWaB{
+    background-color: transparent  !important;
+}
+.sc-beqWaB:hover{
+    background-color: transparent  !important;
+}

@@ -1,0 +1,82 @@
+.booking-section input {
+    border: none;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  .nav-book-form{
+      background-color: #ffa500;
+      padding: 1rem;
+  }
+  
+  .booking-section input:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #187bcd;
+  }
+  
+  .booking-details {
+    max-width: 60vw;
+  }
+  
+  .booking-section select {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    color: #000;
+    font-size: 14px;
+    height: 40px;
+    padding: 10px;
+    width: 100%;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="black" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24px" height="24px"><path d="M7 10l5 5 5-5z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+  }
+  
+  .col-form-label {
+    text-align: start !important;
+  }
+  
+  .booking-section {
+    position: relative;
+    display: flex;
+    padding: 1rem 2rem;
+  }
+  
+  .summary-card {
+    margin: 2rem;
+    width: 70vw;
+    margin-top: 6rem;
+  }
+  
+  .summary-text {
+    text-align: start;
+  }
+  
+  @media screen and (max-width: 576px) {
+    .booking-section {
+      flex-direction: column;
+      gap: 2rem;
+    }
+    .summary-card {
+      width: 100vw;
+      margin: 0;
+    }
+  
+    .booking-details {
+      max-width:100vw;
+  }
+  }
+  .book-sub-btn{
+      background-color: #ffa500;
+      padding:0.5rem 1rem;
+  }
+  .book-sub-btn:hover{
+      background-color:#ffa600 !important;
+  }

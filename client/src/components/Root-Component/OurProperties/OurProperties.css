@@ -1,0 +1,324 @@
+
+.our-properties-main{
+    color: black;
+}
+.about-hotel{
+    padding-top: 20px;
+}
+.goa-properties{
+    display: flex;
+    width: 90%;
+    background-color: white;
+    margin: auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 2px 3px 5px 2px rgba(51, 51, 90, 0.147);
+
+}
+
+.goa-properties-add-room{
+    width: 90%;
+    margin: auto;
+    padding: 20px;
+    display: flex;
+    justify-content: end; 
+}
+
+.our-properties-content{
+    font-size: 18px;
+    margin-left: 20px;
+    width: 70%;
+}
+.our-properties-content h2{
+padding: 0;
+
+}
+.img-container-1{
+    padding-top: 10px;
+    width: 30%;
+}
+.img-container-1 img{
+   padding: 0;
+   width: 100%;
+
+}
+
+ @media (max-width:1000px){
+    .goa-properties{
+        display: block;
+        padding-bottom: 20px;
+        max-width: 500px;
+    }
+    .goa-properties-add-room{
+        max-width: 500px;  
+        justify-content: center;
+ 
+    } 
+    .our-properties-main{
+        padding: 150px 40px;
+        text-align: center;
+    }
+    .our-properties-content p{
+        text-align: justify;              
+    }
+
+    .our-properties-content{
+        width: fit-content;
+    }
+
+    .img-container-1{
+
+        width: 100%;
+    }
+}
+/*
+@media (max-width:650px){
+    .our-properties-main{
+        padding: 150px 20px;
+    }
+} */
+.our-properties-main{
+color: black;
+background-color: rgb(244, 244, 244);
+padding-bottom: 100px;
+}
+
+.quba-goa-search{
+    padding: 0;
+    margin: 0;
+}
+.quba-goa-search .banner {
+    height: 450px;
+    padding: 0;
+    background: url('../../../assets/pexels-pixabay-87430.jpg');
+    background-size: cover;
+    padding-top: 140px;
+    color: white;
+    text-align: center;
+    font-family: 'Satisfy', cursive;    
+    /* margin-bottom: 200px; */
+}
+.quba-goa-search .banner h2{
+    font-size:50px;
+}
+.quba-goa-search .banner h6{
+    font-size: 30px;
+}
+.quba-goa-search .banner  img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    padding: 0;
+}
+.quba-goa-search .banner >.card-dinner{
+    background-color: white;
+    width: fit-content;
+    padding: 40px;
+    margin:auto;
+    color: black;
+    box-shadow: 2px 3px 5px 2px rgba(51, 51, 90, 0.303);
+}
+.properties-to-book{
+    background-color: white;
+    height: 90px;
+    width: 90%;
+    margin: auto;
+    margin-top: -20px;
+    padding: 22px;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 2px 3px 5px 2px rgba(51, 51, 90, 0.303);
+}
+.properties-to-book .select-menu{
+
+width: 450px;
+/* margin: 150px auto; */
+
+
+}
+.select-menu .select-btn{
+display: flex;
+height: 50px;
+background: #fff;
+padding: 20px;
+font-size: 18px;
+font-weight: 400;
+border-radius: 4px;
+align-items: center;
+justify-content: space-between;
+
+cursor: pointer;
+box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+.select-menu .select-btn i{
+    font-size: 25px;
+}
+.select-menu .options{
+    position: relative;
+    padding: 20px;
+    margin-top: 10px;
+    border-radius: 4px;
+    background: #fff;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    z-index: 1000;
+
+}
+
+.options .option{
+    display: flex;
+    height: 55px;
+    cursor: pointer;
+    align-items: center;
+    border-radius: 8px;
+    padding: 0 16px;
+    background-color: #fff;
+}
+.select-menu .options .option:hover{
+ background-color: #F2F2F2;
+}
+.option {
+    font-size: 18px;
+    display: flex;
+}
+.option li{
+    font-size: 25px ;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    margin-right: 12px;
+} 
+
+.option .option-text{
+color: #333;
+}
+
+.properties-to-book > .book-button{
+    padding: 7px 30px;
+    border: none;
+    background-color: orange;
+    text-decoration: none;
+    font-size: 20px;
+    /* height: fit-content; */
+    color: white;
+}
+
+.properties-to-book > .book-button:hover{
+    background-color: #009fe1;
+}
+
+.booking-form-p{
+    z-index: 100000000;
+}
+
+.room-info{
+    border: 1px solid gray;
+    padding:20px;
+}
+
+.overview-of-rooms{
+    height: fit-content;
+    width: 90%;
+    margin: auto;
+    padding: 40px;
+    background-color: rgb(229, 230, 232);
+}
+.room-overview{
+    display: grid;
+    width: 100%;
+    padding: 20px;
+    margin-top: 20px;
+    height: fit-content;
+    grid-template-columns:300px 1fr;
+    grid-auto-rows: auto;
+    gap: 10px;
+    border-radius: 10px;
+
+}
+.room-title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.img-parent-10{
+    width: 250px;
+    height: 250px;
+background-color: #009fe1;
+border-radius: 10px;
+position: relative;
+overflow: hidden;
+}
+.img-parent-10  img{
+    width: 100% ;
+    height: 100% ;
+    padding: 0;
+
+
+}
+.img-parent-10  img{
+    object-fit: cover;
+    cursor: pointer;
+    transition:  0.2s;
+}
+.img-parent-10  img:hover{
+  width: 110%;
+  height: 110% ;
+
+}
+.room-overview-info h4{
+ 
+color: rgb(74, 50, 10);
+}
+.show-more-room-image{
+    background-color: rgba(0, 0, 0, 0.545);
+    padding: 10px 20px;
+    color: white;
+    font-size: 15px;
+    position: absolute;
+    z-index: 1000;
+    top: 80%;
+    left: 3%;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.show-more-room-image:hover{
+    background-color: rgba(0, 0, 0, 0.62);
+}
+
+.reoom-overview-child{
+    display: flex;
+
+}
+.room-overview-review{
+padding: 15px;
+}
+.rating{
+    color: orange;
+    font-size: 25px;
+}
+
+.room-overview-info-facility{
+display: grid;
+grid-template-columns: minmax(150px ,200px)  minmax(200px ,300px);
+margin-top: 10px;
+}
+.room-overview-info-facility >div>h6{
+    color: gray;
+}
+.room-overview-info-capacity>div{
+    display: grid;
+    grid-template-columns: minmax(150px ,200px)  minmax(200px ,300px);
+    margin-top: 10px;
+}
+.room-overview-info-capacity>div>h6{
+    color: gray;
+}
+.room-overview-info-amenities>div {
+display: grid;
+grid-template-columns: repeat(auto-fit,150px);
+color: gray;
+}
+.room-overview-controls{
+    display: flex;
+    padding: 15px 0;
+    justify-content: end;
+}

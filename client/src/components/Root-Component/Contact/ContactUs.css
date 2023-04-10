@@ -1,0 +1,158 @@
+.main-contact{
+    background-color: aliceblue;
+    padding: 140px 100px;
+    color: black;
+}
+.beach-location{
+    background-color: aliceblue;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    box-shadow: 1px 1px 5px 4px rgba(51, 51, 90, 0.076);
+   margin-bottom: 60px;
+}
+.beach-location-map{
+    height: 400px;
+    min-width: 500px;
+    background-color: rgba(0, 0, 0, 0.278);
+}
+.contact-info{
+    display: grid;
+    grid-template-columns: minmax(60%,auto) minmax(40%,auto);
+    background-color: white;
+    box-shadow: 1px 1px 5px 4px rgba(51, 51, 90, 0.076);
+    width: 90%;
+    margin: auto;
+}
+
+.contact-form{
+    padding: 20px;
+
+    gap: 20px;
+    padding: 20px;
+}
+.inputbox{
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0;
+}
+.inputbox input, textarea{
+    background-color: rgb(215, 232, 247);
+    border: none;
+    padding: 5px;
+    color: black;
+    outline: blue;
+}
+
+.inputbox input:focus{
+    box-shadow: 0px 0px 3px 4px rgba(168, 168, 255, 0.205);
+}
+textarea:focus{
+    box-shadow: 0px 0px 3px 4px rgba(168, 168, 255, 0.219);
+}
+.contact-form button{
+padding: 5px 30px;
+margin: 20px 0;
+background-color: orange;
+border: none;
+
+}
+.contact-form button:hover{
+    padding: 5px 30px;
+    margin: 20px 0;
+    background-color: #009fe1;
+ }
+ .contact-info-of{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 100px;
+    background-color: rgba(163, 203, 252, 0.223);
+ }
+ .contact-info-of p {
+    color: white;
+    font-size: 15px;
+    background-color: orange;
+    width: 90%;
+    padding: 20px;
+ }
+ .contact-info-of p:hover{
+    background-color: #009fe1;
+ }
+ .contact-info-of p span{
+    color: black;
+    font-size: 18px;
+    font-weight: 600;
+ }
+
+ .beach-contact{
+    width: 500px;   
+}
+
+.add-new-map-button-par{
+    display: flex;
+    justify-content: flex-end;
+    padding: 20px 0px;
+}
+.add-new-map-button-par button{
+    background-color: orange;
+    padding: 10px 30px;
+    border: none;
+}
+
+.add-new-map-button-par button:hover{
+    background-color: #009fe1;
+
+}
+
+ @media (max-width:1000px){
+    .contact-info{
+        grid-template-columns:1fr;
+
+        width: 100%;
+    }
+    .main-contact{
+        background-color: aliceblue;
+        padding: 140px 50px;
+        color: black;
+    }
+    .beach-location{
+        /* padding-left: 20px; */
+    }
+    .beach-contact{
+        /* padding-left: 20px; */
+    }
+    .main-contact{
+        background-color: aliceblue;
+        padding: 140px 50px;
+        color: black;
+    }
+    .beach-location{
+        /* padding-left: 20px; */
+    }
+
+    .beach-location{
+        background-color: aliceblue;
+        display: block;
+    }
+    .beach-location-map{
+        height: 400px;
+        min-width: 100%;
+        background-color: rgba(0, 0, 0, 0.278);
+    }
+    .beach-contact{
+        width: 100%;
+        padding-left: 10px; 
+
+    }
+ }
+
+ @media (max-width:650px){
+    .main-contact{
+        background-color: aliceblue;
+        padding: 140px 20px;
+        color: black;
+    }
+ }

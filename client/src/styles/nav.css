@@ -1,0 +1,82 @@
+/* header .top-bar-section {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fefefe;
+} */
+
+/* header .top-bar-section {
+    width: 100%;
+    color: #fefefe;
+    background: transparent;
+    margin: 0;
+    padding: 0 0 1px 0;
+    top: 0;
+    text-align: center;
+} */
+
+/* 
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+  } */
+
+
+
+
+/* 
+  .navbar {
+    background-color: rgba(0, 0, 0, 0.5);
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    color: #fff;
+  } */
+  
+  /* .navbar a {
+    color: #fff;
+    text-decoration: none;
+  } */
+  
+  /* .video-container video {
+    object-fit: cover;
+  } */
+
+
+  .container {
+    position: absolute;
+    margin: 20px;
+    width: auto;
+    z-index: 1000;
+  }
+
+/* The navbar */
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+/* Navbar links */
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}

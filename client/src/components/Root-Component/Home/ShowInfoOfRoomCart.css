@@ -1,0 +1,114 @@
+.home-room-cart-parent{
+    min-height: 100vh;
+    background-color: white;
+    padding: 100px 20px 20px  20px;
+}
+.our-room-img{
+    height: 300px;
+    max-width: 500px;
+    border: 1px solid gray;
+    border-radius: 10px;
+    overflow: hidden;
+    width: 40%;
+    min-width: 300px;
+
+}
+
+.our-room-img img{
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: fill;
+}
+.our-room-page-content{
+    display: flex;
+    padding: 10px 0px;
+}
+.our-room-images{
+    width: 60%;
+    margin-left: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,100px);
+    grid-auto-rows: 100px;
+    gap: 15px;
+
+
+}
+.our-room-sub-image{
+    border-radius: 10px;
+    overflow: hidden;
+
+}
+
+.our-room-sub-image img{
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    transition: 0.2s;
+    cursor: pointer;
+}
+.our-room-sub-image img:hover{
+    height: 110%;
+    width: 110%;
+}
+
+.our-room-page-rating{
+    color: orange;
+}
+
+.our-room-sub-image-more{
+    position: relative;
+}
+.our-room-sub-image-more img{
+    height: 100%;
+    width: 100%;
+    object-fit: fill;
+    padding: 0;
+    border-radius: 10px;
+    opacity: 0.4;
+
+}
+.our-room-sub-image-more p{
+    position: absolute;
+    top: 30%;
+    left: 30%;
+    opacity: 1;
+    font-weight: 500;
+    color: black;    
+    cursor: pointer;    
+}
+
+
+.our-roo-parent{
+padding: 10px 30px;
+}
+.room-overview-info-amenities >div {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,250px);
+    grid-auto-rows: auto;
+}
+.room-overview-info-amenities >div >h6{
+    font-size: 20px;
+}
+
+
+@media (max-width:1000px){
+    .our-room-page-content{
+        display: block;
+        padding: 10px 30px;
+    }
+    .our-room-img{
+        height: 300px;
+        max-width: 500px;
+        border: 1px solid gray;
+        border-radius: 10px;
+        overflow: hidden;
+        width: 40%;
+        min-width: 300px;
+        margin: auto;
+        margin-bottom: 20px;
+    }
+    .our-room-images{
+        width: 100%;
+    }
+}

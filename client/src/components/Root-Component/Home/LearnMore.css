@@ -1,0 +1,18 @@
+
+.learn-more-first-content{
+    padding: 100px 30px;
+    display: grid;
+    grid-template-columns: 1fr;
+    place-items: center;
+    background: url('../../../assets/pexels-fabian-wiktor-994605.jpg');
+    font-family: 'Satisfy', cursive;    
+    font-size: 45px;  
+    color: white; 
+}
+.learn-more-about-second-content{
+    padding: 100px 30px;
+    display: grid;
+    grid-template-columns: 1fr;
+    place-items: center;
+
+}
