@@ -158,12 +158,12 @@ const PropertiesForm = ({getPropertiesData}) => {
           allimgurl:roomMultiPalImgUrls,
           imgurl:roomImgUrl,
           title2:roomName,
-          roomcapacity:{max:max,min:min},
+          roomcapacity:{max:" ",min:" "},
           perRoom:rsRoomOnly,
           adults:adults,
           chlidren:children,
           room:room,
-          leftroom:leftRoom,
+          leftroom:" ",
           perRoomPerWithBreakFast:rsbreakFast,
           Guest_Reviews:'No Reviews',
           Room_Amenities:'',
@@ -253,9 +253,7 @@ className='booking-form-p ' scrollable size='lg'>
         </CRow>   
         <CRow className='py-4'>
           <CCol className='m-0 p-0'>
-            {/* <CContainer className='m-0 p-0' > */}
               <CImage ref={imgref} className='p-0 m-0' width={300} height={200}/>
-            {/* </CContainer> */}
           </CCol>
          <CCol lg={6} className='pt-5'>
          <CFormInput  type='file'  accept="image/*"  label={`Upload Uniq Room Image ${roomImgProgress}%`} onChange={handleChange2} /> 
@@ -270,14 +268,7 @@ className='booking-form-p ' scrollable size='lg'>
          <CFormInput label='Room Name' value={roomName} onChange={(e)=>setRoomName(e.target.value)} type='text'/>
          </CCol>
         </CRow>
-        <CRow>
-          <CCol className='mt-2' lg={6}>
-           <CFormInput label='Max Room Capacity ' type='number' value={max} onChange={(e)=>setMax(e.target.value)} />
-          </CCol>
-          <CCol className='mt-2' lg={6}>
-           <CFormInput label='Min Room Capacity ' type='number' value={min} onChange={(e)=>setMin(e.target.value)}  />
-          </CCol>
-        </CRow>
+      
         <CRow>
           <CCol className='mt-2' lg={6}>
            <CFormInput label='Adult Capacity ' value={adults} type='number'  onChange={(e)=>setAdults(e.target.value)} />
@@ -288,22 +279,17 @@ className='booking-form-p ' scrollable size='lg'>
         </CRow>
         <CRow>
           <CCol className='mt-2' lg={6}>
-           <CFormInput label='Room' type='number' value={room} onChange={(e)=>setRoom(e.target.value)}  />
+           <CFormInput label='No of Room' type='number' value={room} onChange={(e)=>setRoom(e.target.value)}  />
           </CCol>
           <CCol className='mt-2' lg={6}>
-           <CFormInput label='Left Room' type='number'  value={leftRoom} onChange={(e)=>setLeftRoom(e.target.value)} />
-          </CCol>
-        </CRow>
+           <CFormInput label='Rs Room only' type='number' value={rsRoomOnly} onChange={(e)=>setRoomOnly(e.target.value)} />
+          </CCol>       
+       </CRow>
         
         <CRow>
           <CCol className='mt-2' lg={6}>
-           <CFormInput label='Rs Room only' type='number' value={rsRoomOnly} onChange={(e)=>setRoomOnly(e.target.value)} />
-          </CCol>
-          <CCol className='mt-2' lg={6}>
            <CFormInput label='Rs Room with Breakfast' type='number' value={rsbreakFast} onChange={(e)=>setBreakFast(e.target.value)}  />
           </CCol>
-        </CRow>
-        <CRow>
           <CCol className='mt-2' lg={6}>
            <CFormInput label='Room No Of Per night' type='number' value={roomPerNight} onChange={(e)=>setRomPerNight(e.target.value)} />
           </CCol>

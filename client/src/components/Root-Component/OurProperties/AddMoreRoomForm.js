@@ -197,12 +197,12 @@ const newRoomdata = {
   allimgurl:roomMultiPalImgUrls,
   imgurl:roomImgUrl,
   title2:roomName,
-  roomcapacity:{max:max,min:min},
+  roomcapacity:{max:"",min:""},
   perRoom:rsRoomOnly,
   adults:adults,
   chlidren:children,
   room:room,
-  leftroom:leftRoom,
+  leftroom:"",
   perRoomPerWithBreakFast:rsbreakFast,
   Guest_Reviews:'No Reviews',
   Room_Amenities:'',
@@ -280,14 +280,7 @@ fetch(`https://allapiresort-w3ql.vercel.app/hotelbook/${roomData?._id}`, {
          <CFormInput label='Room Name' value={roomName} onChange={(e)=>setRoomName(e.target.value)} type='text'/>
          </CCol>
         </CRow>
-        <CRow>
-          <CCol className='mt-2' lg={6}>
-           <CFormInput label='Max Room Capacity ' type='number' value={max} onChange={(e)=>setMax(e.target.value)} />
-          </CCol>
-          <CCol className='mt-2' lg={6}>
-           <CFormInput label='Min Room Capacity ' type='number' value={min} onChange={(e)=>setMin(e.target.value)}  />
-          </CCol>
-        </CRow>
+        
         <CRow>
           <CCol className='mt-2' lg={6}>
            <CFormInput label='Adult Capacity ' value={adults} type='number'  onChange={(e)=>setAdults(e.target.value)} />
@@ -301,27 +294,20 @@ fetch(`https://allapiresort-w3ql.vercel.app/hotelbook/${roomData?._id}`, {
            <CFormInput label='Room' type='number' value={room} onChange={(e)=>setRoom(e.target.value)}  />
           </CCol>
           <CCol className='mt-2' lg={6}>
-           <CFormInput label='Left Room' type='number'  value={leftRoom} onChange={(e)=>setLeftRoom(e.target.value)} />
+           <CFormInput label='Rs Room only' type='number' value={rsRoomOnly} onChange={(e)=>setRoomOnly(e.target.value)} />
           </CCol>
         </CRow>
         
         <CRow>
-          <CCol className='mt-2' lg={6}>
-           <CFormInput label='Rs Room only' type='number' value={rsRoomOnly} onChange={(e)=>setRoomOnly(e.target.value)} />
-          </CCol>
+        
           <CCol className='mt-2' lg={6}>
            <CFormInput label='Rs Room with Breakfast' type='number' value={rsbreakFast} onChange={(e)=>setBreakFast(e.target.value)}  />
           </CCol>
-        </CRow>
-        <CRow>
           <CCol className='mt-2' lg={6}>
            <CFormInput label='Room No Of Per night' type='number' value={roomPerNight} onChange={(e)=>setRomPerNight(e.target.value)} />
           </CCol>
-          {/* <CCol className='mt-2' lg={6}>
-           <CFormInput label='Room Amenities' type='text' value={roomAminities} onChange={(e)=>setRoomAminities(e.target.value)} />
-          </CCol> */}
-        
         </CRow>
+     
  
 
         <CCard className='mx-2 mt-4'>

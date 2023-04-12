@@ -1,195 +1,299 @@
 .card-form {
-    height: 100vh;
-    width: 100vw;
-    padding: 2rem;
+  height: 100vh;
+  width: 100vw;
+  padding: 2rem 1rem;
+}
+.form-book {
+  height: 50vh;
+  width: 50vw;
+}
+
+.BokingPage {
+  height: fit-content;
+  background-color: white;
+  margin-bottom: 40px;
+}
+.booking-logo-div img {
+  height: 15vh;
+  width: 10vw;
+}
+.booking-head {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 4rem;
+}
+.booking-banner {
+  background-size: cover;
+  background:linear-gradient(45deg,rgb(35, 80, 106),rgb(100, 100, 99));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 100px 0px 0px 0px;
+
+}
+.date-check-b {
+  display: flex;
+  background-color: white;
+  text-align: center;
+  color: black;
+  padding: 0.5rem 4rem;
+  box-sizing: content-box;
+  box-shadow: 2px 3px 5px 2px rgba(51, 51, 90, 0.462);
+
+}
+.date-checkIn {
+  font-weight: 700;
+  display: flex;
+  padding: 1rem;
+  gap: 1rem;
+}
+.date-checkout {
+  font-weight: 700;
+  display: flex;
+  padding: 1rem;
+  gap: 1rem;
+}
+.date-checkout .checkout ,.date-checkIn .checkIn{
+  background-color: rgb(194, 206, 210);
+  border: none;
+  outline: none;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 150px;
+  padding: 0px 5px;
+  border: 1px solid gray;
+  color: black;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.date-checkout,.date-checkIn{
+  position: relative;
+}
+
+.date-checkout .checkout:active{
+  padding: 0px 4px;
+  border: 1px solid blue;
+
+}
+.date-checkIn .checkIn:active{
+  padding: 0px 4px;
+  border: 1px solid blue;
+
+}
+
+
+.date-checkIn .checkout span:nth-child(1){
+  font-size: 25px;
+}
+
+.date-checkout .checkIn span:nth-child(1){
+  font-size: 25px;
+}
+
+
+.date-checkout label{
+  font-size: 18px;
+}
+.date-checkIn label{
+  font-size: 18px;
+}
+.check-availablity{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.check-av {
+  background-color: white;
+  height:2rem;
+  margin: 1rem;
+  padding: 0.2rem;
+}
+
+.booking-banner h2 {
+  font-size: 60px;
+  font-weight: bolder;
+  color: white;
+
+}
+
+.booking-b {
+  font-size: 40px;
+  font-weight: bolder;
+  text-align: center;
+
+}
+
+.filter-compare{
+  padding: 2rem 5rem;
+}
+
+
+.booking-card-withS {
+  display: flex;
+  padding: 0 5rem;
+  justify-content: center;
+}
+
+.booking-card {
+  text-align: center;
+  padding: 30px;
+  border-radius: 4px;
+}
+
+.img-parent {
+  width: 250px;
+  height: 100%;
+  animation: loadimage1 1s 1 forwards ease-in-out;
+}
+
+@keyframes loadimage1 {
+  100% {
+    visibility: visible;
+    opacity: 1;
   }
-  .form-book {
-    height: 50vh;
-    width: 50vw;
+}
+
+.booking-card .img-parent img {
+  width: 100%;
+  object-fit: cover;
+  padding: 0;
+}
+.booking-room-card {
+  height: fit-content;
+  box-shadow: 2px 3px 5px 4px rgba(51, 51, 90, 0.204);
+  width: 800px;
+  margin: auto;
+  display: flex;
+  flex-direction: row-reverse;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  padding: 1.5rem;
+}
+
+.card-content {
+  padding: 10px;
+  width: 100%;
+}
+.card-suummary {
+  width: 500px;
+  box-shadow: 1px 1px 3px 2px rgba(51, 51, 90, 0.303);
+  border-radius: 5px;
+  min-height: 500px;
+  height: fit-content;
+
+}
+.card-content .adult {
+  font-size: 25px;
+}
+.card-content .child {
+  font-size: 15px;
+}
+.adultp,
+.childp {
+  display: flex;
+  justify-content: center;
+  align-items: end;
+}
+
+.childp {
+  padding-bottom: 1.6px;
+}
+
+.perRoom-book {
+  background-color: rgba(60, 60, 75, 0.222);
+  border: 1px solid rgba(128, 128, 128, 0.431);
+  margin-top: 2px;
+  padding: 0.5rem;
+}
+.perRoom-book .roomonly {
+  display: flex;
+  flex-direction: column;
+}
+
+.type-of-room {
+  background-color: rgba(236, 233, 233, 0.552);
+  border: 1px solid rgba(128, 128, 128, 0.431);
+}
+.add-room {
+  padding: 5px 30px;
+  background-color: orange;
+  border: none;
+  margin-top: 20px;
+}
+
+.booking {
+  width: 100%;
+  background-color: rgba(236, 235, 235, 0.552);
+  border: 1px solid rgba(56, 55, 55, 0.431);
+  color: black;
+  padding: 10px 40px;
+  font-size: 20px;
+  text-align: center;
+}
+.summary {
+  padding: 1;
+}
+.date {
+  color: black;
+  font-size: 20px;
+  padding: 20px;
+  text-align: center;
+}
+.middale-parent {
+  visibility: hidden;
+  animation: loadcontent 1s 1 forwards ease-in-out;
+  opacity: 0;
+}
+
+@keyframes loadcontent {
+  100% {
+    visibility: visible;
+    opacity: 1;
   }
-  
-  .BokingPage {
-    height: fit-content;
-    background-color: white;
-    margin-bottom: 40px;
-  }
-  .booking-banner {
-    background-size: cover;
-    height: 300px;
-    font-family: "Satisfy", cursive;
-    display: flex;
-    justify-content: center;
-    padding-top: 100px;
-    background-image: url("../../../assets/pexels-asad-photo-maldives-1450353.jpg");
-  }
-  .booking-banner h2 {
-    font-size: 60px;
-    font-weight: bolder;
-    color: white;
-  }
-  
-  .booking-b {
-    font-size: 40px;
-    font-weight: bolder;
-    text-align: center;
-  }
-  
-  .booking-card-withS {
-    display: flex;
-    padding: 20px 80px;
-  }
-  
-  .booking-card {
-    text-align: center;
-    padding: 30px;
-    background-color: rgb(244, 243, 243);
-    border-radius: 4px;
-  }
-  
-  .img-parent {
-    width: 250px;
-    height: 100%;
-    animation: loadimage1 1s 1 forwards ease-in-out;
-  }
-  
-  @keyframes loadimage1 {
-    100% {
-      visibility: visible;
-      opacity: 1;
-    }
-  }
-  
-  .booking-card .img-parent img {
-    width: 100%;
-    object-fit: cover;
-    padding: 0;
-  }
-  .booking-room-card {
-    height: fit-content;
-    background-color: white;
-    box-shadow: 2px 3px 5px 2px rgba(51, 51, 90, 0.204);
-    width: 800px;
-    margin: auto;
-    display: flex;
-    flex-direction: row-reverse;
-    border-radius: 5px;
-    margin-bottom: 20px;
-    padding: 1.5rem;
-  }
-  
-  .card-content {
-    padding: 10px;
-    width: 100%;
-  }
-  .card-suummary {
-    width: 400px;
-    background-color: white;
-    box-shadow: 1px 1px 3px 2px rgba(51, 51, 90, 0.303);
-    min-height: 500px;
-    border-radius: 5px;
-  }
-  .card-content .adult {
-    font-size: 25px;
-  }
-  .card-content .child {
-    font-size: 15px;
-  }
-  .adultp,
-  .childp {
-    display: flex;
-    justify-content: center;
-    align-items: end;
-  }
-  
-  .childp {
-    padding-bottom: 1.6px;
-  }
-  
-  .perRoom-book {
-    background-color: rgba(236, 233, 233, 0.552);
-    border: 1px solid rgba(128, 128, 128, 0.431);
-    margin-top: 2px;
-    padding: 1.5rem;
-  }
-  .perRoom-book .roomonly {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .type-of-room {
-    background-color: rgba(236, 233, 233, 0.552);
-    border: 1px solid rgba(128, 128, 128, 0.431);
-  }
-  .add-room {
-    padding: 5px 30px;
-    background-color: orange;
-    border: none;
-    margin-top: 20px;
-  }
-  
-  .booking {
-    width: 100%;
-    background-color: rgba(236, 235, 235, 0.552);
-    border: 1px solid rgba(56, 55, 55, 0.431);
-    color: black;
-    padding: 10px 40px;
-    font-size: 20px;
-    text-align: center;
-  }
-  .summary {
-    padding: 1;
-  }
-  .date {
-    color: black;
-    font-size: 20px;
-    padding: 20px;
-    text-align: center;
-  }
-  .middale-parent {
-    visibility: hidden;
-    animation: loadcontent 1s 1 forwards ease-in-out;
-    opacity: 0;
-  }
-  
-  @keyframes loadcontent {
-    100% {
-      visibility: visible;
-      opacity: 1;
-    }
-  }
-  
-  .horizontal-counter {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: space-between !important;
-    width: 100px;
-    flex-direction: row !important;
-    height: 30px;
-    border-radius: 5px;
-    background-color: #e8e8e8;
-    padding: 5px;
-  }
-  
-  .counter-button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 25px;
-    height: 25px;
-    border: none;
-    border-radius: 3px;
-    background-color: #f1f1f1;
-    color: #333;
-    cursor: pointer;
-    transition: background-color 0.2s ease-in-out;
-  }
-  
-  .counter-button:hover {
-    background-color: #d9d9d9;
-  }
-  
-  .count-display {
-    font-size: 16px;
-    font-weight: bold;
-    color: #333;
-  }
+}
+
+.horizontal-counter {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  width: 100px;
+  flex-direction: row !important;
+  height: 30px;
+  border-radius: 5px;
+  background-color: #e8e8e8;
+  padding: 5px;
+}
+
+.counter-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 25px;
+  height: 25px;
+  border: none;
+  border-radius: 3px;
+  background-color: #f1f1f1;
+  color: #333;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+  font-size: 20px;
+}
+
+.counter-button:hover {
+  background-color: #d9d9d9;
+}
+
+.count-display {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+}
+.booking{
+background-color: rgb(54, 54, 74);
+color: white;
+}

@@ -1,0 +1,68 @@
+.calender-parent{
+    background-color: white;
+    height: fit-content;
+    width: 640px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  position: absolute;
+  top: 80px;
+  z-index: 100;
+  left: 0;
+  gap: 20px;
+  box-shadow: 2px 3px 5px 2px rgba(51, 51, 90, 0.12);
+  padding: 20px;
+
+}
+.calender-first,.calender-second{
+    display:grid;
+    grid-template-columns: repeat(7,1fr);
+    padding: 10px;
+}
+
+.calender-first .week ,.calender-second .week{
+    font-weight: 400;
+    font-size: 15px;
+}
+
+.calender-first .cus-date,.calender-second .cus-date{
+    border: 1px solid rgba(128, 128, 128, 0.481);
+    font-weight: 400;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    margin: 2px;
+    font-size: 14px;
+    padding: 7px 2px;
+}
+
+.cus-date-active{
+  background-color: rgba(176, 218, 238, 0.488);  
+}
+
+.calender-first .cus-date:hover{
+    background-color: rgba(176, 218, 238, 0.488);
+}
+.calender-second .cus-date:hover{
+    background-color: rgba(176, 218, 238, 0.488);
+}
+.first-calender-year h3, .second-calender-year h3{
+color: black;
+}
+.first-calender-year {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+.second-calender-year{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+.left-icon-c,.right-icon-c{
+font-size: 35px;
+padding: 0;
+margin: 0;
+display: flex;
+align-items: start;
+}

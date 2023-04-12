@@ -1,0 +1,44 @@
+.hotel-room-comparison {
+    padding: 20px;
+  }
+  
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  th,
+  td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+  }
+  
+  th {
+    background-color: #f2f2f2;
+  }
+  
+  .carousel {
+    width: 100% !important;
+    margin-bottom: 10px;
+  }
+  
+  .carousel-item img {
+    width: 100%;
+    /* height: auto; */
+    width: 250px !important;
+  }
+  
+  .carousel {
+    width: 100%;
+    max-height: 238px !important;
+    margin-bottom: 10px;
+    width: 250px !important;
+  }
+  
+  .carousel-item img {
+    width: 250px !important;
+    max-height: 238px !important;
+    height: auto;
+    object-fit: cover;
+  }
