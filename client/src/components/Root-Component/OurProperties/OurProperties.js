@@ -206,7 +206,7 @@ function deleteRoom(id){
               </div>
           </div>
           </div>
-          <div className='room-overview-review'>
+          {/* <div className='room-overview-review'>
             <h5>Customer reviews</h5>
             <div className='rating'>
               <AiFillStar/>
@@ -216,7 +216,7 @@ function deleteRoom(id){
               <AiOutlineStar/>
             </div>
 
-          </div>
+          </div> */}
           </div> 
           <div className='room-overview-info-amenities'>
                <h5>Room Amenities</h5>

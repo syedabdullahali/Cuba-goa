@@ -29,6 +29,8 @@ const BookingPage = () => {
   const [availability, setAvailability] = useState([]);
   const [toggaleCalender,setToggaleCalender] = useState(0)
 
+
+
   useEffect(() => {
     // Fetch availability data from backend for desired period
     const fetchAvailability = async () => {
@@ -41,29 +43,7 @@ const BookingPage = () => {
     fetchAvailability();
   }, [checkInDate, checkOutDate]);
 
-  // const handleCheckInDateChange = (event) => {
-  //   setCheckInDate(event.target.value);
-  // };
 
-  // const handleCheckOutDateChange = (event) => {
-  //   setCheckOutDate(event.target.value);
-  // };
-
-  // const getAvailableDates = () => {
-  //   const startDate = new Date(checkInDate);
-  //   const endDate = new Date(checkOutDate);
-  //   const nights = (endDate - startDate) / (1000 * 60 * 60 * 24);
-  //   const availableDates = [];
-
-  //   for (let i = 0; i < nights; i++) {
-  //     const date = new Date(startDate.getTime() + i * 24 * 60 * 60 * 1000);
-  //     if (availability.includes(date)) {
-  //       availableDates.push(date);
-  //     }
-  //   }
-
-  //   return availableDates;
-  // };
 
   const getCurrentDateInput = (dateObj) => {
     const month = ("0" + (dateObj.getMonth() + 1)).slice(-2);
@@ -74,15 +54,10 @@ const BookingPage = () => {
   };
 
 
-
-  
-
-
- 
   useEffect(()=>{
     const date = new Date()
     const date2 = new Date()
-    date2.setDate(date.getDate()+2)
+    date2.setDate(date.getDate()+1)
   setCheckInDate(date)
   setCheckOutDate(date2)
   },[])
@@ -147,19 +122,24 @@ const BookingPage = () => {
   }, []);
 
   const handleRemove = (data, perRoom) => {
+
+    console.log(data)
     console.log(perRoom, "sdxrfctvgbhn");
+   
     if (perRoom) {
       setSummaryData(
-        summaryData.filter((item) => item._id != data._id && item.perRoom)
+        summaryData.filter((item) => item._id !== data._id || data.perRoom !== item.perRoom       )
       );
     } else {
       setSummaryData(
         summaryData.filter(
-          (item) => item._id != data._id && item.perRoomPerWithBreakFast
+          (item) => item._id !== data._id || item.perRoomPerWithBreakFast!==data.perRoomPerWithBreakFast
         )
       );
     }
   };
+
+
 
   const incrementNormalItem = (room) => {
     setSummaryData((prevData) => {
@@ -176,37 +156,18 @@ const BookingPage = () => {
   console.log(summaryData);
 
   const decrementNormalItem = (room) => {
-    const shouldDelete = summaryData.some(
-      (data) => data.item === 1 && data.perRoom && data._id == room._id
-    );
 
-    console.log(shouldDelete, "fjdsalkfdlsakj", summaryData.length == 1);
-
-    if (shouldDelete && summaryData.length == 1) {
-      setSummaryData([]);
-      setNormalRoom(false);
-      return;
-    }
-
-    if (shouldDelete && summaryData.length > 1) {
-      setSummaryData((prevData) => {
-        const newData = prevData.filter(
-          (data) => data.perRoom && data._id != room._id
-        );
-        return newData;
-      });
-      setNormalRoom(false);
-      return;
-    }
-    setSummaryData((prevData) => {
-      const newData = prevData.map((data) => {
-        if (data.perRoom && data.item !== 0 && data._id == room._id) {
+    const decrement = (prevData) => {
+      return prevData.map((data) => {
+        if (data.perRoom && data._id == room._id) {
           return { ...data, item: data.item - 1 };
         }
         return data;
       });
-      return newData;
-    });
+    }
+
+  setSummaryData(prevData=>decrement(prevData).filter((el)=>el.item));
+  
   };
 
   const incrementBreakfastItem = (room) => {
@@ -220,67 +181,25 @@ const BookingPage = () => {
     });
   };
 
+
   const decrementBreakfastItem = (room) => {
-    const shouldDelete = summaryData.some(
-      (data) =>
-        data.item === 1 && data.perRoomPerWithBreakFast && data._id == room._id
-    );
 
-    if (shouldDelete && summaryData.length == 1) {
-      console.log("delete");
-      setSummaryData([]);
-      setBreakfastRoom(false);
-      return;
-    }
 
-    if (shouldDelete && summaryData.length > 1) {
-      console.log("delete it");
-      setSummaryData((prevData) => {
-        const newData = prevData.filter(
-          (data) => data.perRoomPerWithBreakFast && data._id != room._id
-        );
-        return newData;
-      });
-      setBreakfastRoom(false);
-
-      return;
-    }
-    setSummaryData((prevData) => {
-      const newData = prevData.map((data) => {
-        if (
-          data.perRoomPerWithBreakFast &&
-          data.item !== 0 &&
-          data._id == room._id
-        ) {
-          return { ...data, item: data.item - 1 };
-        }
-        return data;
-      });
-      const shouldDelete = newData.some(
-        (data) =>
-          data.item === 0 &&
-          data.perRoomPerWithBreakFast &&
-          data._id == room._id
-      );
-      if (shouldDelete) {
-        setDel(true);
-        setBreakfastRoom(false);
+    const decrement = (prevData) => {
+        return prevData.map((data) => {
+          if (data.perRoomPerWithBreakFast && data._id == room._id) {
+            return { ...data, item: data.item - 1 };
+          }
+          return data;
+        });
       }
-      return newData;
-    });
+  
+    setSummaryData(prevData=>decrement(prevData).filter((el)=>el.item));
 
-    if (del) {
-      setDel(false);
-      setSummaryData((prevData) => {
-        const newData = prevData.filter(
-          (data) => !data.perRoomPerWithBreakFast && data._id != room._id
-        );
-        return newData;
-      });
-    }
   };
 
   const getCount = (index, room) => {
+
     if (index == 0) {
       return summaryData.find((data) => {
         return data.perRoom && data._id == room._id ? true : false;
@@ -296,12 +215,6 @@ const BookingPage = () => {
 
 
 
-// function getNoOfNight (date1,date2){
-//   const oneDay = 24 * 60 * 60 * 1000; // hours*minutes*seconds*milliseconds
-//   const firstDate = new Date(date1);
-//   const secondDate = new Date(date2);
-//  const diffDays = Math.round(Math.abs((firstDate - secondDate) / oneDay));
-// }
 
 const toggaleCalenderFun=()=>{
   setToggaleCalender(0)
@@ -309,7 +222,7 @@ const toggaleCalenderFun=()=>{
 }
 
 
-console.log(toggaleCalender)
+console.log(summaryData)
 
   return (
     <main className="BokingPage">
@@ -328,7 +241,18 @@ console.log(toggaleCalender)
                   }}>
                   <label>Check In</label>
                   <div className="checkIn"><span>{<AiOutlineCalendar/>}</span><span>{getCurrentDateInput(checkInDate)}</span></div>
-                  {<CustomInputDate  toggaleCalenderFun={toggaleCalenderFun}  visible={toggaleCalender===1} setCutomDate={setCheckInDate} customDate={checkInDate}  />} 
+                  {<CustomInputDate 
+                   toggaleCalenderFun={toggaleCalenderFun}  
+                   visible={toggaleCalender===1}
+                   setCutomDate={setCheckInDate}
+                   customDate={checkInDate} 
+                   datelimit={(()=>{
+                    const dateF = new Date().setDate(new Date().getDate() -1)
+                    return dateF
+                  })()}
+
+                   
+                   />} 
                 </div>
                 <div className="date-checkout" id=''  onClick={(e)=>{
                   if(e.target.id!=='Callender'){
@@ -337,7 +261,16 @@ console.log(toggaleCalender)
                   }}>
                   <label>Check Out</label>
                   <div className="checkout"><span>{<AiOutlineCalendar/>}</span><span>{ getCurrentDateInput(checkOutDate)}</span></div>
-                 {<CustomInputDate  toggaleCalenderFun={toggaleCalenderFun} visible={toggaleCalender===2} setCutomDate={setCheckOutDate} customDate={checkOutDate} />} 
+                 {<CustomInputDate  
+                 toggaleCalenderFun={toggaleCalenderFun} 
+                 visible={toggaleCalender===2} 
+                 setCutomDate={setCheckOutDate} 
+                 customDate={checkOutDate}
+                 datelimit={(()=>{
+                  const date = new Date(checkInDate).setDate(new Date(checkInDate).getDate()+1 )
+                  return date
+                 })()}
+                 />} 
                 </div>
 
                 <div className="check-availablity">
@@ -394,31 +327,21 @@ console.log(toggaleCalender)
                       <h5>{el.title2} </h5>
                     </div>
 
-                    <div className="perRoom-book">
-                      <BookingCard
-                        counter={getCount(0, el) ? getCount(0, el).item : 0}
-                        increment={incrementNormalItem}
-                        decrement={decrementNormalItem}
-                        onClick={onClickNormal}
-                        room={el}
-                        bookingData={bookingData}
-                        breakfastRoom={false}
-                        onChange={onChange}
-                      />
-                    </div>
+                    
 
-                    <div className="perRoom-book">
-                      <BookingCard
-                        counter={getCount(1, el) ? getCount(1, el).item : 0}
-                        increment={incrementBreakfastItem}
-                        decrement={decrementBreakfastItem}
-                        onClick={onClickBreakfast}
-                        room={el}
-                        bookingData={bookingData}
-                        breakfastRoom={true}
-                        onChange={onChange}
-                      />
-                    </div>
+                    <BreakFastAndRoomCard
+                     getCount={getCount}
+                     incrementNormalItem={incrementNormalItem}
+                     decrementNormalItem={decrementNormalItem}
+                     incrementBreakfastItem={incrementBreakfastItem}
+                     decrementBreakfastItem={decrementBreakfastItem}
+                     onClickBreakfast={onClickBreakfast}
+                     onClickNormal={onClickNormal}
+                     room={el}
+                     bookingData={bookingData}
+                     onChange={onChange}
+
+                    />
                   </div>
                 </div>
               ))}
@@ -431,6 +354,8 @@ console.log(toggaleCalender)
                   <SummaryCard
                     summaryData={summaryData}
                     handleRemove={handleRemove}
+                    checkInDate={checkInDate}
+                    checkOutDate={checkOutDate}
                   />
                 
                 )}
@@ -442,5 +367,57 @@ console.log(toggaleCalender)
     </main>
   );
 };
+
+
+function BreakFastAndRoomCard(
+  {getCount,incrementNormalItem,decrementNormalItem,
+  onClickNormal,room,onClickBreakfast,bookingData,onChange,
+  incrementBreakfastItem,decrementBreakfastItem}
+  ){
+
+
+
+
+return <>
+<div className="perRoom-book">
+                      <BookingCard
+                        counter={getCount(0, room) ? getCount(0, room).item : 0}
+                        increment={incrementNormalItem}
+                        decrement={decrementNormalItem}
+                        onClick={onClickNormal}
+                        onClick2={onClickBreakfast}
+
+                        room={{...room}}
+                        bookingData={bookingData}
+                        breakfastRoom={false}
+                        onChange={onChange}
+                        onChange2={onChange}
+
+                        increment2={incrementBreakfastItem}
+                        decrement2={decrementBreakfastItem}
+                        counter2={getCount(1, room) ? getCount(1, room).item : 0}
+                      />
+                    </div>
+
+                    {/* <div className="perRoom-book">
+                      <BookingCard
+                        counter={getCount(1, room) ? getCount(1, room).item : 0}
+                        increment={incrementBreakfastItem}
+                        decrement={decrementBreakfastItem}
+                        onClick={onClickBreakfast}
+                        room={{...room}}
+                        bookingData={bookingData}
+                        breakfastRoom={true}
+                        onChange={onChange}
+                        remainRoom={remainRoom}
+                        setRmainRoomFun={setRmainRoomFun}
+                      />
+                    </div> */}
+</>
+
+  
+}
+
+
 
 export default BookingPage;

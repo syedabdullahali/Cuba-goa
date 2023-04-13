@@ -3,7 +3,7 @@ import './CustomInputDate.css'
 import { useState } from 'react'
 import {AiOutlineLeft,AiOutlineRight} from 'react-icons/ai'
 
-const CustomInputDate = ({setCutomDate,customDate,visible,toggaleCalenderFun}) => {
+const CustomInputDate = ({setCutomDate,customDate,visible,toggaleCalenderFun,datelimit}) => {
 const [calenderMonthYear,setCalenderMonthYear]  = useState({
     month:new Date(customDate).getMonth(),
     year:new Date(customDate).getFullYear(),
@@ -17,6 +17,29 @@ let weekday = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
 const monthNames = ["January", "February", "March", "April", "May", "June",
   "July", "August", "September", "October", "November", "December"
 ]
+
+
+function compareDate(date1,date2){
+  return date1.getFullYear()===date2.getFullYear()&&
+  date1.getMonth()===date2.getMonth()&&
+  date1.getDate()===date2.getDate()
+} 
+
+function CompareDateLimit(date1,date2){
+
+  if(new Date(date1).getTime() > new Date(date2).getTime()){
+     return true
+  } 
+return false
+}
+
+
+function toDisableDate(date2,datelimit){
+  if(CompareDateLimit(datelimit,date2)){
+       return false
+  }
+  return true
+}
 
 
 
@@ -65,10 +88,7 @@ function dateClassName(el){
  const TodayDate   =   new Date(customDate) 
  const selectedDate =   new Date(el) 
 
- if(TodayDate.getFullYear()===selectedDate.getFullYear()&&
-    TodayDate.getMonth()===selectedDate.getMonth()&&
-    TodayDate.getDate()===selectedDate.getDate()
- ){
+ if(compareDate(TodayDate,selectedDate)){
     return 'cus-date-active cus-date'
  }
  return 'cus-date'   
@@ -84,7 +104,8 @@ function visibaleHidden(){
         <div className='first-calender-year'>
             <div className='left-icon-c' onClick={()=>decrementDate()}><AiOutlineLeft/></div>
             <h4 className=' ms-5'>{ monthNames[new Date(firstDate.find((el)=>el)).getMonth()]}</h4>
-            <h4 className=' ms-3'>{new Date(firstDate.find((el)=>el)).getFullYear()}</h4>
+            <h4 className=' ms-3'>{
+            new Date(firstDate.find((el)=>el)).getFullYear()}</h4>
         </div>    
         <div className='second-calender-year' onClick={()=>incrementDate()}>
             <h4 className='me-3'>{monthNames[new Date(secondDate.find((el)=>el)).getMonth()]}</h4>
@@ -95,21 +116,33 @@ function visibaleHidden(){
         <div className='calender-first'>
             <>
             {weekday.map((el)=><div className='week'>{el}</div>)}
-            {firstDate.map((el)=><div id='Callender' className={el? dateClassName(el):''} onClick={(e)=>{
+            {firstDate.map((el)=>
+            
+              (toDisableDate(el,datelimit)? <div  id='Callender' className={el?dateClassName(el):''} onClick={(e)=>{
                 if(!el)return
-                setCutomDate(el)
+                setCutomDate(el) 
                 visibaleHidden()}} >
-                {new Date(el).getDate()?new Date(el).getDate():''}</div>)}
+                    {new Date(el).getDate()?new Date(el).getDate():''}</div>
+                : <div  style={{opacity:'0.5',cursor:'not-allowed'}} className={el?dateClassName(el):''}  >
+                      {new Date(el).getDate()?new Date(el).getDate():''}</div>    
+                    )
+                    
+                    
+                    )}
+
            </>
         </div>
         <div className='calender-second'>
           <>
             {weekday.map((el)=><div className='week'>{el}</div>)}
-            {secondDate.map((el)=><div  id='Callender' className={el?dateClassName(el):''} onClick={(e)=>{
+            {secondDate.map((el)=> (toDisableDate(el,datelimit)? <div  id='Callender' className={el?dateClassName(el):''} onClick={(e)=>{
                 if(!el)return
                 setCutomDate(el) 
                 visibaleHidden()}} >
-                    {new Date(el).getDate()?new Date(el).getDate():''}</div>)}
+                    {new Date(el).getDate()?new Date(el).getDate():''}</div>
+                : <div  style={{opacity:'0.5',cursor:'not-allowed'}} className={el?dateClassName(el):''}  >
+                      {new Date(el).getDate()?new Date(el).getDate():''}</div>    
+                    ))}
            </>
       </div>     
     </div>

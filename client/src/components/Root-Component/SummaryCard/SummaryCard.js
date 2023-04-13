@@ -10,15 +10,32 @@ export default function SummaryCard(props) {
   const navigate = useNavigate();
   console.log(props.summaryData);
 
+  function getNoOfNight (date1,date2){
+    const oneDay = 24 * 60 * 60 * 1000; // hours*minutes*seconds*milliseconds
+    const firstDate = new Date(date1);
+    const secondDate = new Date(date2);
+   const diffDays = Math.round(Math.abs((firstDate - secondDate) / oneDay));
+   return diffDays
+  }
+
+
+  const getCurrentDateInput = (dateObj) => {
+    const month = ("0" + (dateObj.getMonth() + 1)).slice(-2);
+    const day = ("0" + dateObj.getDate()).slice(-2);
+    const year = dateObj.getFullYear();  
+    const shortDate = `${day}/${month}/${year}`;
+    return shortDate;
+  };
+
   return (
     <Card className="summary-car" style={{ width: "100%" }}>
       <div className="summary-dates summary-flex">
         <div>Dates</div>
-        <h6>2023-04-12 - 2023-04-13</h6>
+        <h6>{getCurrentDateInput(props.checkInDate)} - {getCurrentDateInput(props.checkOutDate)}</h6>
       </div>
       <div className="summary-flex summary-night">
         <div>Night</div>
-        <h6>1</h6>
+        <h6>{getNoOfNight(props.checkInDate,props.checkOutDate)}</h6>
       </div>
       {props.summaryData.map((data) => (
         <div>
@@ -45,7 +62,7 @@ export default function SummaryCard(props) {
           </div>
         </div>
       ))}
-      <div className="my-2 p-4 text-white w-100">
+      <div className="my-2 p-4 text-black w-100">
         <h6>
           Total Rs{" "}
           {props.summaryData.reduce((crr, el, i) => {
