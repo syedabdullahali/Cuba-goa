@@ -60,7 +60,7 @@ h6 {
   position: relative;
 }
 
-.action span {
+.action-2 span {
   color: green;
   font-size: 0.8rem;
 }
@@ -74,14 +74,17 @@ h6 {
   bottom: 0;
   height: 1px;
   left: 0;
-  background: black;
 }
 
+
+
 .room-pax {
-  display: flex;
-  align-items: center;
   padding: 1rem 0.5rem;
+  display: grid;
+  border-top: 2px solid rgb(183, 181, 181);
+  grid-template-columns:repeat(4,1fr);
 }
+
 
 .pax-type {
   display: flex;
@@ -90,13 +93,19 @@ h6 {
 }
 
 .pax-type span {
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   text-align: right;
+  color: black;
 }
 
 .pax-age {
-  color: rgba(0, 0, 0, 0.4);
-  font-size: 0.6rem !important;
+  color: gray;
+  font-size: 0.8rem !important;
+}
+.pax select{
+ margin-left: 10px; 
+ background-color: white;
+ color: black;
 }
 
 .pax {
@@ -104,6 +113,7 @@ h6 {
   align-items: center;
   width: 100%;
 }
+
 
 .booking-card {
   padding: 1rem;
@@ -120,4 +130,14 @@ h6 {
 
 .resort-name > h2 {
   font-size:1.3rem;
+}
+.no-error-1{
+  color: rgb(3, 164, 3);
+  font-size: 16px;
+  font-weight: 500;
+}
+.error-1{
+  color: rgb(164, 3, 3);
+  font-size: 16px;
+  font-weight: 500;
 }

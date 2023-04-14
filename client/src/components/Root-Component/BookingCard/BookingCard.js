@@ -11,8 +11,9 @@ import { CButton } from "@coreui/react";
 export default function BookingCard(props) {
   const [showCounter, setShowCounter] = useState(false);
   const [showCounter2, setShowCounter2] = useState(false);
-
   
+  const {toRoomCapacity} = props 
+
 
   const toggleCounter = () => {
     setShowCounter(true);
@@ -77,10 +78,10 @@ export default function BookingCard(props) {
 
   return (
     <>
-    <Card>
+    <Card className="mb-2">
       <div className="resort-name">
         <h2>
-          {props.bookingData.title}{" "}
+          {props.room.title2}{" "}
         </h2>
       </div>
       <div className="room-details">
@@ -122,13 +123,14 @@ export default function BookingCard(props) {
         </div>
         {showCounter &&props.room.room ? (
           <>
-              <span className="text-success" style={{fontSize:'14px'}}>
-               {props.room.room-props.counter?`${props.room.room-props.counter} Room Left`:"No room left"} </span>
+              {props.room.room-(props.counter+props.counter2)?  
+           <span style={{fontSize:'14px'}} className="no-error-1" >{props.room.room-(props.counter+props.counter2)} Room  Left </span>:
+           <span  style={{fontSize:'14px'}} className="text-danger error-1">No room Left</span>}
 
           <div className="horizontal-counter">
             
             <button className="counter-button" onClick={()=>{
-               if(props.counter){
+               if((props.counter)){
                 onDecrement() 
              }
             }
@@ -139,7 +141,7 @@ export default function BookingCard(props) {
             <div className="count-display">{props.counter}</div>
             <button className="counter-button" onClick={()=>{
             
-             if(props.room.room - props.counter){
+             if(props.room.room - (props.counter+props.counter2)){
               onIncrement() 
            }
               }
@@ -148,12 +150,14 @@ export default function BookingCard(props) {
             </button>
           </div>
           </>) : (
-          <div className="action">
-            <span>Hurry {props.room.room} Room  Left </span>
+          <div className="action-2">
+           {props.room.room-(props.counter+props.counter2)?  
+           <span className="no-error-1" >Hurry {props.room.room-(props.counter+props.counter2)} Room  Left </span>:
+           <span  className="text-danger error-1">No room Left</span>}
             <CButton onClick={()=>{ 
-             if(props.room.room-props.counter){
+             if(props.room.room-(props.counter+props.counter2)){
               toggleCounter()
-           }else if(!(props.room.room-props.counter)){
+           }else if(!(props.room.room-(props.counter+props.counter2))){
              alert('Rooms are not available')
            }
             }
@@ -163,63 +167,15 @@ export default function BookingCard(props) {
       </div>
       {showCounter && (
         new Array(+props.counter).fill(1).map((el,i)=>
-        <div className="room-pax">
-          <h6>Room {+el + i} </h6>
-          <div className="pax-adult pax">
-            <div className="pax-type">
-              <span>No of Adult</span>
-              <span className="pax-age">(12+ years)</span>
-            </div>
-            <select>
-              {+props.room.adults?
-            new Array(+props.room.adults).fill(1).map((el,i)=><option value="2">{el+i}</option>):
-            <option value="2">0</option>
-            }
-            </select>
-          </div>
-          <div className="pax">
-           <div className="pax-type">
-              <span>No of Child </span>
-              <span className="pax-age">(0-12yrs)</span>
-            </div>
-            <select>
-            {+props.room.chlidren?+props.room.chlidren:0?
-            new Array(+props.room.chlidren?+props.room.chlidren:0).fill(1).map((el,i)=><option value="2">{el+i}</option>):
-            <option value="2">0</option>
-            }
-            </select>
-          </div>
+        <OptionInput room={props.room} i={i} cr={"B"}  toRoomCapacity={toRoomCapacity} />
 
-          <div className="pax-child pax">
-            <div className="pax-type">
-              <span>Child Age</span>
-              <span className="pax-age">(0-12yrs)</span>
-            </div>
-            <select>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="1">3</option>
-              <option value="2">4</option>
-              <option value="1">5</option>
-              <option value="2">6</option>
-              <option value="2">7</option>
-              <option value="1">8</option>
-              <option value="2">9</option>
-              <option value="2">10</option>
-              <option value="1">11</option>
-              <option value="2">12</option>
-            </select>
-          </div>
-          
-        </div>
       ))}
     </Card>
 
     <Card>
     <div className="resort-name">
       <h2>
-        {props.bookingData.title}{" "}
-        {props.breakfastRoom && "(Room & Breakfast)"}
+        {props.room.title2}{"(Room & Breakfast)"}
       </h2>
     </div>
     <div className="room-details">
@@ -261,14 +217,16 @@ export default function BookingCard(props) {
       </div>
       {showCounter2 &&props.room.room ? (
         <>
-            <span className="text-success" style={{fontSize:'14px'}}>
-             {props.room.room-props.counter2?`${props.room.room-props.counter2} Room Left`:"No room left"} </span>
+            {props.room.room-(props.counter+props.counter2)?  
+           <span style={{fontSize:'14px'}} className="no-error-1" >{props.room.room-(props.counter+props.counter2)} Room  Left </span>:
+           <span  style={{fontSize:'14px'}} className="text-danger error-1">No room Left</span>}
 
         <div className="horizontal-counter">
           
           <button className="counter-button" onClick={()=>{
              if(props.counter2){
               onDecrement2() 
+              toRoomCapacity({index:props.counter2+"A",roomId:props.room._id},'remove')
            }
           }
             
@@ -278,7 +236,7 @@ export default function BookingCard(props) {
           <div className="count-display">{props.counter2}</div>
           <button className="counter-button" onClick={()=>{
           
-           if(props.room.room-props.counter2){
+           if(props.room.room-(props.counter+props.counter2)){
             onIncrement2() 
          }
             }
@@ -287,12 +245,14 @@ export default function BookingCard(props) {
           </button>
         </div>
         </>) : (
-        <div className="action">
-          <span>Hurry {props.room.room} Room  Left </span>
+        <div className="action-2">
+             {props.room.room-(props.counter+props.counter2)?  
+           <span className="no-error-1" >Hurry {props.room.room-(props.counter+props.counter2)} Room  Left </span>:
+           <span  className="text-danger error-1">No room Left</span>}
           <CButton onClick={()=>{ 
-           if(props.room.room-props.counter2){
+           if(props.room.room-(props.counter+props.counter2)){
             toggleCounter2()
-         }else if(!(props.room.room-props.counter2)){
+         }else if(!(props.room.room-(props.counter+props.counter2))){
            alert('Rooms are not available')
          }
           }
@@ -301,58 +261,82 @@ export default function BookingCard(props) {
       )}
     </div>
     {showCounter2 && (
-      new Array(+props.counter2).fill(1).map((el,i)=>
-      <div className="room-pax">
-        <h6>Room {+el + i} </h6>
-        <div className="pax-adult pax">
-          <div className="pax-type">
-            <span>No of Adult</span>
-            <span className="pax-age">(12+ years)</span>
-          </div>
-          <select>
-            {+props.room.adults?
-          new Array(+props.room.adults).fill(1).map((el,i)=><option value="2">{el+i}</option>):
-          <option value="2">0</option>
-          }
-          </select>
-        </div>
-        <div className="pax">
-         <div className="pax-type">
-            <span>No of Child </span>
-            <span className="pax-age">(0-12yrs)</span>
-          </div>
-          <select>
-          {+props.room.chlidren?+props.room.chlidren:0?
-          new Array(+props.room.chlidren?+props.room.chlidren:0).fill(1).map((el,i)=><option value="2">{el+i}</option>):
-          <option value="2">0</option>
-          }
-          </select>
-        </div>
-
-        <div className="pax-child pax">
-          <div className="pax-type">
-            <span>Child Age</span>
-            <span className="pax-age">(0-12yrs)</span>
-          </div>
-          <select>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="1">3</option>
-            <option value="2">4</option>
-            <option value="1">5</option>
-            <option value="2">6</option>
-            <option value="2">7</option>
-            <option value="1">8</option>
-            <option value="2">9</option>
-            <option value="2">10</option>
-            <option value="1">11</option>
-            <option value="2">12</option>
-          </select>
-        </div>
-        
-      </div>
+      new Array(+props.counter2).fill(1).map((_,i)=>
+     
+      <OptionInput room={props.room} i={i} cr={"A"}  toRoomCapacity={toRoomCapacity} />
     ))}
   </Card>
   </>
   );
+}
+
+ function  OptionInput(props){
+
+  const [capacity,setCapacity] = useState({index:props?.i+props?.cr,adult:1,child:1,childAge:1,roomId:props.room._id})
+
+  useEffect(()=>{
+    setCapacity((prev)=>{return {...prev,index:(props?.i+1)+props?.cr,roomId:props.room._id}})
+  },[props?.i])
+
+  const {adult,child,childAge} = capacity
+
+console.log(capacity)
+
+  useEffect(()=>{
+    props.toRoomCapacity(capacity)
+  },[adult,child,childAge])
+
+
+
+
+  return  <div className="room-pax">
+  <h6>Room {props.i +1} </h6>
+  <div className="pax-adult pax">
+    <div className="pax-type">
+      <span>No of Adult</span>
+      <span className="pax-age">(12+ years)</span>
+    </div>
+    <select value={capacity.adult} onChange={(e)=>setCapacity((prev)=>({...prev,adult:e.target.value}))} >
+      {+props.room.adults?
+    new Array(+props.room.adults).fill(1).map((el,i)=><option value={el+i}>{el+i}</option>):
+    <option value="0">0</option>
+    }
+    </select>
+  </div>
+  <div className="pax">
+   <div className="pax-type">
+      <span>No of Child </span>
+      <span className="pax-age">(0-12yrs)</span>
+    </div >
+    <select value={capacity.child} onChange={(e)=>setCapacity((prev)=>({...prev,child:e.target.value}))} >
+    {+props.room.chlidren?+props.room.chlidren:0?
+    new Array(+props.room.chlidren?+props.room.chlidren:0).fill(1).map((el,i)=><option value={el+i}>{el+i}</option>):
+    <option value="0">0</option>
+    }
+    </select>
+  </div>
+
+  <div className="pax-child pax">
+    <div className="pax-type">
+      <span>Child Age</span>
+      <span className="pax-age">(0-12yrs)</span>
+    </div>
+    <select  value={capacity.childAge} onChange={(e)=>setCapacity((prev)=>({...prev,childAge:e.target.value}))}>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+      <option value="10">10</option>
+      <option value="11">11</option>
+      <option value="12">12</option>
+    </select>
+  </div>
+  
+</div>
+
 }

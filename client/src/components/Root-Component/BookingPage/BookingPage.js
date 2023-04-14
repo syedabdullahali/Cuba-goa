@@ -28,6 +28,8 @@ const BookingPage = () => {
   const [checkOutDate, setCheckOutDate] = useState("");
   const [availability, setAvailability] = useState([]);
   const [toggaleCalender,setToggaleCalender] = useState(0)
+  const [allCapaCity,setAllCapaCity] = useState([])
+
 
 
 
@@ -167,7 +169,7 @@ const BookingPage = () => {
     }
 
   setSummaryData(prevData=>decrement(prevData).filter((el)=>el.item));
-  
+
   };
 
   const incrementBreakfastItem = (room) => {
@@ -212,17 +214,66 @@ const BookingPage = () => {
       });
     }
   };
-
-
-
-
 const toggaleCalenderFun=()=>{
   setToggaleCalender(0)
-  console.log('hello')
 }
 
 
+
+function toRoomCapacity(capacity,type="Add"){
+
+  console.log(capacity,type)
+
+if(type==='Add'){
+  function prevState(prev){
+    let copyPrev = [...prev]
+     if(!prev.some((el)=>el.index===capacity.index && el.roomId ===capacity.roomId)){
+      copyPrev.push(capacity)
+    }else{  
+       copyPrev = copyPrev.map((el)=>{
+      if(el.index===capacity.index && el.roomId ===capacity.roomId){
+         return capacity
+      }
+      return el
+    })
+  }
+ 
+    setSummaryData((prev)=>{
+      return prev.map((el)=>{
+         el.capacityInfo =[]
+        copyPrev.forEach((el2)=>{
+          if(el.perRoomPerWithBreakFast && el2.index.includes('A') && el._id === el2.roomId )
+          {
+                el.capacityInfo.push(el2)
+          }
+          
+          if(el.perRoom && el2.index.includes('B') && el._id === el2.roomId )
+          {
+                el.capacityInfo.push(el2)
+          }
+        })  
+        return el       
+         })
+     })
+ 
+    return copyPrev
+   }
+    setAllCapaCity((val)=>prevState(val))
+}
+
+
+ }
+
+
+ 
+
+
+
+
+
 console.log(summaryData)
+console.log(allCapaCity)
+
 
   return (
     <main className="BokingPage">
@@ -309,39 +360,37 @@ console.log(summaryData)
               {bookingData?.availableroom?.map((el) => (
                 <div className="booking-room-card">
                   <div className="img-parent">
-                    <CImage
-                      rounded
-                      thumbnail
+                    <img
                       width={2000}
                       height={2000}
                       src={bookingData.imgurl}
                       alt=""
                     />
                     <div className="type-of-room">
-                      <h6>({el.title2})</h6>
+                      <h6>{el.title2}</h6>
                     </div>
                   </div>
 
                   <div className="card-content">
-                    <div>
-                      <h5>{el.title2} </h5>
+                    <div className="perRoom-book">
+                      
+                      <BookingCard
+                        counter={getCount(0, el) ? getCount(0, el).item : 0}
+                        increment={incrementNormalItem}
+                        decrement={decrementNormalItem}
+                        onClick={onClickNormal}
+                        onClick2={onClickBreakfast}
+                        room={{...el}}
+                        bookingData={bookingData}
+                        breakfastel={false}
+                        onChange={onChange}
+                        onChange2={onChange}
+                        increment2={incrementBreakfastItem}
+                        decrement2={decrementBreakfastItem}
+                        counter2={getCount(1, el) ? getCount(1, el).item : 0}
+                        toRoomCapacity={toRoomCapacity}
+                      />
                     </div>
-
-                    
-
-                    <BreakFastAndRoomCard
-                     getCount={getCount}
-                     incrementNormalItem={incrementNormalItem}
-                     decrementNormalItem={decrementNormalItem}
-                     incrementBreakfastItem={incrementBreakfastItem}
-                     decrementBreakfastItem={decrementBreakfastItem}
-                     onClickBreakfast={onClickBreakfast}
-                     onClickNormal={onClickNormal}
-                     room={el}
-                     bookingData={bookingData}
-                     onChange={onChange}
-
-                    />
                   </div>
                 </div>
               ))}
@@ -369,54 +418,7 @@ console.log(summaryData)
 };
 
 
-function BreakFastAndRoomCard(
-  {getCount,incrementNormalItem,decrementNormalItem,
-  onClickNormal,room,onClickBreakfast,bookingData,onChange,
-  incrementBreakfastItem,decrementBreakfastItem}
-  ){
 
-
-
-
-return <>
-<div className="perRoom-book">
-                      <BookingCard
-                        counter={getCount(0, room) ? getCount(0, room).item : 0}
-                        increment={incrementNormalItem}
-                        decrement={decrementNormalItem}
-                        onClick={onClickNormal}
-                        onClick2={onClickBreakfast}
-
-                        room={{...room}}
-                        bookingData={bookingData}
-                        breakfastRoom={false}
-                        onChange={onChange}
-                        onChange2={onChange}
-
-                        increment2={incrementBreakfastItem}
-                        decrement2={decrementBreakfastItem}
-                        counter2={getCount(1, room) ? getCount(1, room).item : 0}
-                      />
-                    </div>
-
-                    {/* <div className="perRoom-book">
-                      <BookingCard
-                        counter={getCount(1, room) ? getCount(1, room).item : 0}
-                        increment={incrementBreakfastItem}
-                        decrement={decrementBreakfastItem}
-                        onClick={onClickBreakfast}
-                        room={{...room}}
-                        bookingData={bookingData}
-                        breakfastRoom={true}
-                        onChange={onChange}
-                        remainRoom={remainRoom}
-                        setRmainRoomFun={setRmainRoomFun}
-                      />
-                    </div> */}
-</>
-
-  
-}
 
 
 
