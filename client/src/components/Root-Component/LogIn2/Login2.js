@@ -13,7 +13,7 @@ const Login2 = () => {
     async function login() {
         if (email !== '' || password !== '') {
           let item = { email, password,userName: email.split('@')[0]+"CubGoa"}
-          let result = await fetch("https://allapiresort-w3ql.vercel.app/login", {
+          let result = await fetch("https://cuba-goa-z4hl.onrender.com/login", {
             method: "POST",
             headers: {
               'Accept': 'application/json',

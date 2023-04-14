@@ -28,7 +28,7 @@ const Resorts = () => {
  }
 
 const getHotelData  = async  ()=>{
- const response = await  fetch(`https://allapiresort-w3ql.vercel.app/hotelbook`)
+ const response = await  fetch(`https://cuba-goa-z4hl.onrender.com/hotelbook`)
  setResortData(await response.json())
 }
 

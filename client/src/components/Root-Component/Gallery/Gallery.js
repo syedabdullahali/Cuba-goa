@@ -13,7 +13,7 @@ const Gallery = () => {
   const [selectedImg,setSelectedImg] = useState('')
 
   const getHotelData  = async  ()=>{
-    const response = await  fetch(`https://allapiresort-w3ql.vercel.app/hotelbook`)
+    const response = await  fetch(`https://cuba-goa-z4hl.onrender.com/hotelbook`)
     const data  =  await response.json() 
 
     const allImgUrl = []
@@ -64,30 +64,12 @@ const Gallery = () => {
              <div className='img-gallary-selected-text-2'>{selectedImg.title}</div>
              </div>}                  
        
-         {/* </CCardBody> */}
       </div>
   
     </main>
   )
 
-    //     <section className='gallery'>
-               
-    //          <CCard style={{width:'fit-content'}} className='d-flex m-auto'>
-    //           <CCardHeader>
-    //                   <h4>View our resorts Gallary</h4>
-    //           </CCardHeader>
-    //          <CCardBody>    
-    //           <CButton></CButton>              
-    //                  <CImage rounded thumbnail  src="https://www.greatblueresorts.com/wp-content/uploads/2018/01/Superior-Deluxe-400x235.jpg" alt="" />
-    //           <CButton></CButton>              
-    //           </CCardBody>
-                
-    //          </CCard >  
-    //             <div className='gallery-image-slider'>
-    //                <CCard className='d-flex'>
-    //                </CCard>
-    //             </div>
-    //     </section>
+   
 }
 
 export default Gallery

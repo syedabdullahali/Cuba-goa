@@ -18,7 +18,7 @@ const ShowInfoOfRoomCart = () => {
     const [showAllImage,setShowAllImage] = useState(false)
 
     const getRoom = async  ()=>{
-      const response = await fetch(`https://allapiresort-w3ql.vercel.app/hotelbook/${id}`,{headers:{
+      const response = await fetch(`https://cuba-goa-z4hl.onrender.com/hotelbook/${id}`,{headers:{
         method:'GET'
       }})
       const data = await response.json()

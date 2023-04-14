@@ -42,7 +42,7 @@ const  breakPoints = [
 ]
 
  const getPropertiesData = async  ()=>{
-  const response = await fetch(`https://allapiresort-w3ql.vercel.app/hotelbook`,{headers:{
+  const response = await fetch(`https://cuba-goa-z4hl.onrender.com/hotelbook`,{headers:{
     method:'GET'
   }})
   const data = await response.json()

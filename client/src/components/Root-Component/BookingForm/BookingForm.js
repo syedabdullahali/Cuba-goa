@@ -25,7 +25,7 @@ function BookingSection() {
   async function connect(payment_request) {
     try {
       const response = await axios.post(
-        "http://localhost:4001/payment",
+        "https://cuba-goa-z4hl.onrender.com/payment",
         payment_request
       );
       console.log(response);

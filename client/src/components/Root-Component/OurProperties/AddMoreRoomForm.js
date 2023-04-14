@@ -223,7 +223,7 @@ roomData.availableroom.push(newRoomdata)
    
 const data ={...roomData}
       
-fetch(`https://allapiresort-w3ql.vercel.app/hotelbook/${roomData?._id}`, {
+fetch(`https://cuba-goa-z4hl.onrender.com/hotelbook/${roomData?._id}`, {
   method: "PUT",
   headers: {
       'Accept': 'application/json',

@@ -13,7 +13,7 @@ const Spa = () => {
 
   const getSpaList = async () => {
     try {
-      const response = await axios.get("https://allapiresort-w3ql.vercel.app/allSpaList");
+      const response = await axios.get("https://cuba-goa-z4hl.onrender.com/allSpaList");
       if (response.data.success) {
         console.log(response.data.data);
         setData(response.data.data);

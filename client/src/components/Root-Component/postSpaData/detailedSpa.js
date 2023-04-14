@@ -14,7 +14,7 @@ export default function DetailedSpa() {
   const fetchDetails = async (id) => {
     try {
       const { data } = await axios.get(
-        "https://allapiresort-w3ql.vercel.app/spaDetails/" + id
+        "https://cuba-goa-z4hl.onrender.com/spaDetails/" + id
       );
       console.log(data);
       if (data.success) {

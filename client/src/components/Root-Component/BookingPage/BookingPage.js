@@ -95,7 +95,7 @@ const BookingPage = () => {
 
   const addCart = async (id) => {
     try {
-      const { data } = await axios.post("http://localhost:4001/add-cart" + id);
+      const { data } = await axios.post("https://cuba-goa-z4hl.onrender.com/add-cart" + id);
       console.log(data);
       if (data.status) {
         setCart(data.data);
@@ -109,7 +109,7 @@ const BookingPage = () => {
 
   const getHotelData = async () => {
     const response = await fetch(
-      `https://allapiresort-w3ql.vercel.app/hotelbook/${id}`,
+      `https://cuba-goa-z4hl.onrender.com/hotelbook/${id}`,
       { method: "GET" }
     );
     const data = await response.json();

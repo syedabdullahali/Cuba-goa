@@ -34,7 +34,7 @@ const OurProperties = () => {
  
 
  const getPropertiesData = async  ()=>{
-const response = await fetch(`https://allapiresort-w3ql.vercel.app/hotelbook`,{headers:{
+const response = await fetch(`https://cuba-goa-z4hl.onrender.com/hotelbook`,{headers:{
   method:'GET'
 }})
 const data = await response.json()
@@ -48,7 +48,7 @@ setSelectedVal([data[0].title,data[0]._id])
 
 
   function deleteResost(id){
-    fetch(`https://allapiresort-w3ql.vercel.app/hotelbook/${id}`, {
+    fetch(`https://cuba-goa-z4hl.onrender.com/hotelbook/${id}`, {
       method: "DELETE",
       headers: {
           'Accept': 'application/json',
@@ -69,7 +69,7 @@ function deleteRoom(id){
   const obj  = ourPropertiesData.find((el)=>el.title===selectedValue[0])
   const newObjeact = obj?.availableroom?.filter((el)=>el._id!==id) 
   obj.availableroom = newObjeact
-  fetch(`https://allapiresort-w3ql.vercel.app/hotelbook/${obj._id}`, {
+  fetch(`https://cuba-goa-z4hl.onrender.com/hotelbook/${obj._id}`, {
     method: "PUT",
     headers: {
         'Accept': 'application/json',
