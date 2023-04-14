@@ -14,7 +14,7 @@ export default function DetailedSpa() {
   const fetchDetails = async (id) => {
     try {
       const { data } = await axios.get(
-        "http://localhost:4001/spaDetails/" + id
+        "https://allapiresort-w3ql.vercel.app/spaDetails/" + id
       );
       console.log(data);
       if (data.success) {

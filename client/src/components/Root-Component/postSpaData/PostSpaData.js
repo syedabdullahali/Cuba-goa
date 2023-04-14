@@ -21,7 +21,7 @@ function PostForm() {
   //post data form
   const postData = async () => {
     await axios
-      .post("http://localhost:4001/addspa", form)
+      .post("https://allapiresort-w3ql.vercel.app/addspa", form)
       .then((resp) => {
         console.log(resp);
       })
