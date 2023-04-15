@@ -132,6 +132,7 @@ export default function BookingCard(props) {
             <button className="counter-button" onClick={()=>{
                if((props.counter)){
                 onDecrement() 
+                toRoomCapacity({index:props.counter+"B",roomId:props.room._id},'remove')
              }
             }
               
@@ -272,7 +273,7 @@ export default function BookingCard(props) {
 
  function  OptionInput(props){
 
-  const [capacity,setCapacity] = useState({index:props?.i+props?.cr,adult:1,child:1,childAge:1,roomId:props.room._id})
+  const [capacity,setCapacity] = useState({index:(props?.i+1)+props?.cr,adult:1,child:0,childAge:0,roomId:props.room._id})
 
   useEffect(()=>{
     setCapacity((prev)=>{return {...prev,index:(props?.i+1)+props?.cr,roomId:props.room._id}})
@@ -298,7 +299,10 @@ console.log(capacity)
     </div>
     <select value={capacity.adult} onChange={(e)=>setCapacity((prev)=>({...prev,adult:e.target.value}))} >
       {+props.room.adults?
-    new Array(+props.room.adults).fill(1).map((el,i)=><option value={el+i}>{el+i}</option>):
+
+    new Array(+props.room.adults).fill(1).map((el,i)=>
+    <option value={el+i}>{el+i}</option>
+    ):
     <option value="0">0</option>
     }
     </select>
@@ -306,14 +310,19 @@ console.log(capacity)
   <div className="pax">
    <div className="pax-type">
       <span>No of Child </span>
-      <span className="pax-age">(0-12yrs)</span>
     </div >
+
+
     <select value={capacity.child} onChange={(e)=>setCapacity((prev)=>({...prev,child:e.target.value}))} >
-    {+props.room.chlidren?+props.room.chlidren:0?
-    new Array(+props.room.chlidren?+props.room.chlidren:0).fill(1).map((el,i)=><option value={el+i}>{el+i}</option>):
+      {+props.room.chlidren?
+<>
+    <option value="0">0</option>  
+    {new Array(+props.room.chlidren).fill(1).map((el,i)=><option value={el+i}>{el+i}</option>)}
+</>:
     <option value="0">0</option>
     }
-    </select>
+    </select> 
+
   </div>
 
   <div className="pax-child pax">
@@ -322,6 +331,7 @@ console.log(capacity)
       <span className="pax-age">(0-12yrs)</span>
     </div>
     <select  value={capacity.childAge} onChange={(e)=>setCapacity((prev)=>({...prev,childAge:e.target.value}))}>
+       <option value="0">0</option>  
       <option value="1">1</option>
       <option value="2">2</option>
       <option value="3">3</option>

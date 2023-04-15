@@ -26,7 +26,6 @@ export default function SummaryCard(props) {
     const shortDate = `${day}/${month}/${year}`;
     return shortDate;
   };
-
   return (
     <Card className="summary-car" style={{ width: "100%" }}>
       <div className="summary-dates summary-flex">
@@ -51,7 +50,7 @@ export default function SummaryCard(props) {
             </span>
           </div>
           <div className="summary-pax summary-flex">
-            <h6>{data.adults} Adults, 1 Child, 1 Room</h6>
+            <h6>{data?.capacityInfo?.reduce((crr,el)=>crr+ +el.adult,0)} Adults, {data?.capacityInfo?.reduce((crr,el)=>crr+ +el.child,0)} Child, 1 Room</h6>
           </div>
           <div className="summary-flex summary-after summary-price">
             <div></div>

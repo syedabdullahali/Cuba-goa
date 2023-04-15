@@ -150,14 +150,25 @@
   height: 150px;
   animation: loadimage1 1s 1 forwards ease-in-out;
   position: relative;
+  border-radius: 5px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: 0.8s;
 }
 .img-parent img {
 padding: 0;
 height: 100%;
 width: 100%;
 object-fit: cover;
-border-radius: 10px 10px 0px 0px;
+cursor: pointer;
+transition: 0.2s;
 }
+
+.img-parent img:hover {
+  height: 110%;
+  width: 110%;
+  }
+
 .type-of-room{
   position: absolute;
   bottom: 0%;

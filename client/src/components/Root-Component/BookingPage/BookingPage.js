@@ -221,12 +221,9 @@ const toggaleCalenderFun=()=>{
 
 
 function toRoomCapacity(capacity,type="Add"){
-
-  console.log(capacity,type)
-
-if(type==='Add'){
   function prevState(prev){
     let copyPrev = [...prev]
+if(type==='Add'){
      if(!prev.some((el)=>el.index===capacity.index && el.roomId ===capacity.roomId)){
       copyPrev.push(capacity)
     }else{  
@@ -237,6 +234,10 @@ if(type==='Add'){
       return el
     })
   }
+}else if (type==='remove'){
+  copyPrev = copyPrev.filter((el)=>!(el.index===capacity.index && el.roomId ===capacity.roomId))
+
+}
  
     setSummaryData((prev)=>{
       return prev.map((el)=>{
@@ -259,7 +260,7 @@ if(type==='Add'){
     return copyPrev
    }
     setAllCapaCity((val)=>prevState(val))
-}
+
 
 
  }
