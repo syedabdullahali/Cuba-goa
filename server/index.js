@@ -15,13 +15,27 @@ app.use(cookieParser());
 app.use(cors());
 
 // rotes//
-const user = require("./router/userRouter");
-const booking = require("./router/bookingRouter");
-const spa = require("./router/spaRouter");
+// const user = require("./router/userRouter");
+// const booking = require("./router/bookingRouter");
+// const spa = require("./router/spaRouter");
 
-app.use("/", user);
-app.use("/", booking);
-app.use("/", spa);
+// app.use("/", user);
+// app.use("/", booking);
+// app.use("/", spa);
+
+app.use(require('./router/userRouter'))
+app.use(require('./router/bookingRouter'))
+app.use(require('./router/spaRouter'))
+
+app.get("/", (req, res) => {
+  try{
+    res.send("Welome to Cuba Goa!")
+  }
+  catch(err){
+    res.send(err)
+    console.log(err)
+  }
+})
 
 mongoose.set("strictQuery", false);
 mongoose
