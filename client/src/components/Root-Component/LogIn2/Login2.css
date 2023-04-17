@@ -3,10 +3,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    /* text-align: center; */
 }
 
 .login-form{
-
     padding: 20px;
     background-color: rgb(37, 37, 60);
     display: flex;
@@ -15,4 +15,27 @@
     border-radius: 5px;
     width: 400px;
     height: fit-content;
+}
+
+.already-have-an-account{
+    margin-top: 10px;
+    /* text-align: center; */
+    color: blanchedalmond;
+    font-size: 13px;
+}
+
+.regiser-span{
+    font-weight: 500;
+    color: red;
+    cursor: pointer;
+}
+
+.regiser-span:hover{
+    color: rgb(43, 226, 205)
+}
+
+.login-err{
+    font-size: 15px;
+    color: red;
+    margin-bottom: 7px;
 }
