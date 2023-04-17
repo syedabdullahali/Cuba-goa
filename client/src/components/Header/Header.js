@@ -21,20 +21,20 @@ const Header = () => {
 
 
   useEffect(()=>{
-     if(user?.user && location1!=='/'){
+     if(user?.username && location1!=='/'){
           return 
      } 
 
-    if(user?.user  ){
+    if(user?.username  ){
       navigate('/')
       return
     }
-navigate('/log-In')
+navigate('/landing-page')
   },[])
 
 function LogOut(){
 localStorage.removeItem('user-info')
-navigate('/log-In')
+navigate('/landing-page')
 }
 
 
