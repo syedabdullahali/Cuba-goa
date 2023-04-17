@@ -11,11 +11,12 @@ const Contactus = require("../models/contactus");
 router.post("/register", async (req, res) => {
   try {
     const { username, password, email } = req.body;
-    const existingEmail = await User.find({ email: email });
-    if (existingEmail)
+    const existingEmail = await User.findOne({ email });
+    if (existingEmail){
       return res.status(409).json({ message: "User already exists" });
+    }
     const hash = await bcrypt.hash(password, 10);
-    const user = await User.create({
+    const newRegistration = await User.create({
       email: email,
       password: hash,
       name: username,
@@ -29,8 +30,9 @@ router.post("/register", async (req, res) => {
 // Login //
 router.post("/login", async (req, res) => {
   try {
-    const { email, password } = req.body;
-    const user = await User.find({ email: email });
+      const { email, password } = req.body;
+    // return res.status(400).json({email: email , password: password });
+    const user = await User.findOne({ email: email });
     if (!user)
       return res
         .status(400)
@@ -51,43 +53,43 @@ router.post("/login", async (req, res) => {
   }
 });
 //
-router.post("/login", async (req, res) => {
-  const { email, password } = req.body;
+// router.post("/login", async (req, res) => {
+//   const { email, password } = req.body;
 
-  const user = await User.findOne({ email: email });
-  if (user) {
-    if (password === user.password) {
-      res.send({ message: "Login Successfull", user: user });
-    } else {
-      res.send({ message: "Password didn't match" });
-    }
-  } else {
-    res.send({ message: "User not registered" });
-  }
-  console.log(user);
-});
+//   const user = await User.findOne({ email: email });
+//   if (user) {
+//     if (password === user.password) {
+//       res.send({ message: "Login Successfull", user: user });
+//     } else {
+//       res.send({ message: "Password didn't match" });
+//     }
+//   } else {
+//     res.send({ message: "User not registered" });
+//   }
+//   console.log(user);
+// });
 
-router.post("/register", async (req, res) => {
-  const { name, email, password } = req.body;
-  const user = await User.findOne({ email: email });
-  if (user) {
-    return res.json({ message: "User already registerd" });
-  } else {
-    const user = await User.create({
-      name,
-      email,
-      password,
-    });
-    console.log(user);
-    // user.save(err => {
-    //     if(err) {
-    //         res.send(err)
-    //     } else {
-    //         res.send( { message: "Successfully Registered, Please login now." })
-    //     }
-    // })
-  }
-});
+// router.post("/register", async (req, res) => {
+//   const { name, email, password } = req.body;
+//   const user = await User.findOne({ email: email });
+//   if (user) {
+//     return res.json({ message: "User already registerd" });
+//   } else {
+//     const user = await User.create({
+//       name,
+//       email,
+//       password,
+//     });
+//     console.log(user);
+//     user.save(err => {
+//         if(err) {
+//             res.send(err)
+//         } else {
+//             res.send( { message: "Successfully Registered, Please login now." })
+//         }
+//     })
+//   }
+// });
 
 router.get("/register", async (req, res) => {
   try {
