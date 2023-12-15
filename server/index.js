@@ -26,7 +26,7 @@ app.use(cors());
 app.use(require('./router/userRouter'))
 app.use(require('./router/bookingRouter'))
 app.use(require('./router/spaRouter'))
-
+app.use(require('./router/chat'))
 app.get("/", (req, res) => {
   try{
     res.send("Welome to Cuba Goa!")

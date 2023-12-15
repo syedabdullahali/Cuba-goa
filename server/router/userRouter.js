@@ -4,7 +4,7 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
 
-const User = require("../models/user");
+const User = require("../models/user")
 const Contactus = require("../models/contactus");
 
 // Register
@@ -31,6 +31,7 @@ router.post("/register", async (req, res) => {
 router.post("/login", async (req, res) => {
   try {
       const { email, password } = req.body;
+      console.log(email, password);
     // return res.status(400).json({email: email , password: password });
     const user = await User.findOne({ email: email });
     if (!user)
@@ -42,7 +43,7 @@ router.post("/login", async (req, res) => {
       return res
         .status(400)
         .json({ status: false, message: "Invalid password" });
-    const token = jwt.sign({ id: user.id }, process.env.SECRET_KEY, {
+    const token = jwt.sign({ _id: user._id }, process.env.JWT_SECRET_KEY, {
       expiresIn: "24h",
     });
     res
